@@ -1,0 +1,35 @@
+<div class="workout-card" (click)="goToWorkout()">
+	<div class="header">
+		<!-- Icon based on what type of workout -->
+		<img [src]="(athlete | async)?.photoUrl" class="typeIcon">
+		<h5 class="author">@{{(athlete | async)?.username}}</h5>
+	</div>
+	<div class="image">
+		<img [src]="(workout | async)?.thumbnail?.imageURL" class="workoutPhoto">
+	</div>
+	<div class="about">
+		<div class="row">
+			<h4 class="title">{{(workout | async)?.name}}</h4>
+			<div (click)="addWorkout()" class="addWorkout">
+				<ion-icon ios="ios-add-circle-outline" md="md-add-circle"></ion-icon>
+			</div>
+		</div>
+		<div class="description">
+			{{(workout | async)?.description}}
+		</div>
+	</div>
+	<ul class="social">
+		<li (click)="like()" class="socialButton">
+			<h4>{{(workout | async)?.duration}}</h4>
+			Mins
+		</li>
+		<li (click)="star()" class="socialButton">
+			<h4>{{(workout | async)?.likes}}</h4>
+			Likes
+		</li>
+		<li (click)="completed()" class="socialButton">
+			<h4>{{(workout | async)?.completions}}</h4>
+			Completed
+		</li>
+	</ul>
+</div>

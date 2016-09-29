@@ -1,0 +1,58 @@
+.properties-change {
+	background: rgba(38,38,38, .1);
+	.alert-box {
+		background-color: white;
+		margin-left: 10%;
+		margin-right: 10%;
+		border-top-right-radius: 5px;
+		border-top-left-radius: 5px;
+		max-height: 75%;
+		margin-top: 15%;
+		
+		.header {
+			width: 100%;
+			padding: 10px;
+			text-align: center;
+			font-size: 1.2em;
+			border-bottom: 1px solid map-get($colors, border);
+		}
+		.propertiesList {
+			width: 100%;
+			.property {
+				border-bottom: 1px solid map-get($colors, border);
+				padding: 10px;
+				font-size: 1.2em;
+				font-family: map-get($fonts, primary);
+				.name {
+
+				}
+				input {
+					border: 1px solid map-get($colors, border);
+					text-align: center;
+				}
+			}
+
+		}
+
+		.options {
+			text-align: center;
+			button {
+				margin: 0;
+				width: 50%;
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+			}
+			.okay {
+				border-bottom-right-radius: 0;
+				float: left;
+			}
+			.okay:disabled {
+				opacity: .4;
+			}
+			.cancel {
+				border-bottom-left-radius: 0;
+				float: right;
+			}
+		}
+	}
+}

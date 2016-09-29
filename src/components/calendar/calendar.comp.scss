@@ -1,0 +1,24 @@
+.calendar-comp {
+	.calendar {
+		display: table;
+		width: 100%;
+		padding-left: 10%;
+		padding-right: 10%;
+		.week {
+			display: table-row;
+			.day {
+				border-top: 1px solid map-get($colors, border);
+				text-align: center;
+				width: 15%;
+				height: 3em;
+				display: table-cell;
+			}
+      .selected {
+        background-color: map-get($colors, background);
+      }
+      .workoutIcon {
+        color: map-get($colors, primary);
+      }
+		}
+	}
+}

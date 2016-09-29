@@ -1,0 +1,20 @@
+<div class="result-comp">
+	<div class="header">
+		<div class="profile">
+			<div class="profile-picture">
+				<img [src]="(athlete | async)?.photoUrl">
+			</div>
+			<div class="name">@{{(athlete | async)?.username}}</div>
+		</div>
+		<div class="date">
+			{{result.completionDate | date}}
+		</div>
+	</div>
+	<div *ngIf="result.image?.imageURL" class="result-photo">
+		<img [src]="result.image?.imageURL">
+	</div>
+	<workout [workoutId]="result.workoutId"></workout>
+	<div class="description" *ngIf="result.description">
+		 {{result.description}}
+	</div>
+</div>	

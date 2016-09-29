@@ -1,0 +1,13 @@
+<div class="action-comp" (click)="navigate()">
+	<div class="thumbnail">
+		<img [src]="(athlete | async)?.photoUrl">
+	</div>
+	<div class="info" *ngIf="action.action">
+		<div class="message">
+			@{{(athlete | async)?.username}} {{action.action}} <strong>{{(actionOnObject | async)?.name}}</strong> {{action.actionOnType}}
+		</div>
+		<div class="date">
+			{{action.date | date}}
+		</div>
+	</div>
+</div>

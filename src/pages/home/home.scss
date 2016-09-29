@@ -1,0 +1,17 @@
+.toolbar-background {
+	background-color: map-get($colors, background);
+	border: 0px;
+}
+
+.toolbar-title {
+	color: map-get($colors, primary);
+	font-size: 1.7em;
+	font: ariel;
+}
+
+.home {
+	background-color: map-get($colors, background);
+	.feed {
+		padding-top: 25px;
+	}
+}

@@ -1,0 +1,25 @@
+<ion-content class="result-page">
+	<workout [workoutId]="result.workoutId"></workout>
+	<div class="result">
+		<ion-icon name="alarm"></ion-icon>
+		{{result.result | clock}}
+	</div>
+	<img class="photo" [src]="result.image.imageURL" alt="Photo" *ngIf="result.image?.imageURL" (click)="addPhoto()">
+	<div class="info">
+		<ion-icon class="photoIcon" name="camera" (click)="addPhoto()"></ion-icon>
+		<textarea class="description" placeholder="Describe Your Workout!" [(ngModel)]="result.description"></textarea>
+	</div>
+	<ion-item>
+		<ion-label>Private</ion-label>
+		<ion-toggle [(ngModel)]="result.private"></ion-toggle>
+	</ion-item>
+	<!-- 
+	<div class="location">
+		<ion-icon name="pin"> Add Location
+	</div>
+	<div class="people"></div>
+	<div class="share"></div>
+	-->
+	<button (click)="save()" class="complete">Complete Workout</button>
+
+</ion-content>

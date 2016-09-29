@@ -1,0 +1,54 @@
+.imageModal {
+	background-color: rgba(38,38,38,0.75);
+	.image {
+		padding-top: 50px;
+		padding-left: 20px;
+		padding-right: 20px;
+		vertical-align: center;
+		width: 100%;
+		margin-bottom: -2px;
+	}
+	.options {
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		font-size: 2em;
+		color: white;
+		width: 15%;
+	}
+	.close {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		font-size: 2em;
+		color: white;
+	}
+	.menu {
+		background-color: map-get($colors, background);
+		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 5px;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		background-color: white;
+		margin-left: 20px;
+		margin-right: 20px;
+		text-align: center;
+		li {
+			color: white;
+			font-family: map-get($fonts, primary);
+			padding: 10px;
+			background-color: map-get($colors, primary);
+			width: 100%;
+			display: inline-block;
+			font-size: 1.3em;
+			cursor: pointer;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+		li:hover {
+			background-color: map-get($colors, primary);
+
+		}
+	}
+}

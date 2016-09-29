@@ -1,0 +1,8 @@
+<ion-content class="selectUsername">
+	<form class="select">
+		Select A Username!
+		<input class="username" name="username" [(ngModel)]="username" placeholder="Username" type="text" (keyup)="verify($event)" pattern="^[A-Za-z0-9_]{1,15}$" required>
+				<div class="error" *ngIf="error">{{error}}</div>
+		<button (click)="selectUsername()" [disabled]="error">Set Username</button>
+	</form>
+</ion-content>

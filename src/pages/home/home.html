@@ -1,0 +1,10 @@
+<ion-header class="header">
+    <ion-navbar>
+        <ion-title class="title">38Plank</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home">
+	<div *ngFor="let result of resultPipe | async">
+		<result [result]="result"></result>
+	</div>
+</ion-content>

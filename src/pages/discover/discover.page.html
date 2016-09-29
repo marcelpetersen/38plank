@@ -1,0 +1,10 @@
+<ion-content class="discover-page">
+	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+	<div class="tabs">
+		<a (click)="tabs('workout')" class="option" [ngClass]="{visiting: workout}">Workouts</a>
+		<a (click)="tabs('people')" class="option" [ngClass]="{visiting: people}">People</a>
+	</div>
+	<div *ngFor="let item of items | async" class="list-item">
+		<workout-card [workoutId]="item.$key"></workout-card>
+	</div>
+</ion-content>

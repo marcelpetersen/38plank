@@ -1,0 +1,47 @@
+.result-page {
+
+	.result {
+		text-align: center;
+		font-size: 1.5em;
+		font-family: map-get($fonts, primary);
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid map-get($colors, border);
+	}
+
+	.photo {
+		width: 100%;
+	}
+
+	.info {
+
+		padding-top: 5px;
+		border-bottom: 1px solid map-get($colors, border);
+
+		.photoIcon {
+			padding-left: 20px;
+			padding-right: 20px;
+			text-align: center;
+			font-size: 2em;
+			color: map-get($colors, primary);
+		}
+
+		.description {
+			padding-left: 5px;
+			border: none;
+			width: 15em !important;
+			height: 4em !important;
+			vertical-align: middle;
+			border-left: 1px solid map-get($colors, border);
+			resize: none;
+		}
+	}
+
+	.complete {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+	}
+}

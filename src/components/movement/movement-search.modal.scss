@@ -1,0 +1,23 @@
+.movementSearch {
+	background-color: rgba(0,0,0,.7);
+	color: white;
+	.create-movement {
+		width: 100%;
+		height: 50px;
+		font-size: 1.5em;
+		padding: 10px;
+		ion-icon {
+			color: map-get($colors, primary);
+			font-size: 1.8em;
+			vertical-align: middle;
+			padding-right: 5px;
+		}
+		.text {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+	.searchBar {
+		padding-top: 15px;
+	}
+}

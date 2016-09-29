@@ -1,0 +1,41 @@
+<ion-header>
+	<ion-navbar>
+	  <ion-title>Movement Editor</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content class="movementForm">
+	<div class="header">
+		<video class="mainVideo" width="100%" controls [src]="(movement | async)?.videoURL || 'https://firebasestorage.googleapis.com/v0/b/popping-inferno-7577.appspot.com/o/videos%2FThe%20Snatch.mp4?alt=media&token=06f2c8f6-50b8-444d-8a03-81f7b7049b1d'"></video>
+	</div>
+	<div class="title">
+		<img class="thumbnailImage" [src]="(movement | async)?.thumbnail?.imageURL">
+		<div class="details">
+			<input class="name" placeholder="New Movement" (blur)="updateName($event)" value="{{(movement | async)?.name}}">
+			<div class="category" (click)="changeCategory()">
+				<ion-icon name="walk"></ion-icon>
+				{{(movement | async)?.type}}
+			</div>
+		</div>
+	</div>
+	<ion-scroll scrollX="true" class="images">
+			<div class="text">Images</div>
+			<div class="photos" *ngFor="let image of images | async">
+				<img class="photo" [src]="image.imageURL" (click)="imageOptions(image)">
+				<ion-icon *ngIf="editing && editable" (click)="deletePhoto(image)" name="remove-circle"></ion-icon>
+			</div>
+			<ion-icon class="addPhoto" (click)="addImage()" ios="ios-add-circle-outline" md="md-add-circle" *ngIf="editing && editable"></ion-icon>
+	</ion-scroll>
+	<div class="videos">
+		<div class="text">Videos</div>
+		<div class="videoList">
+			<img *ngFor="let videoURL of movement.videos" src="videoURL">
+		</div>
+		<ion-icon class="addVideo" (click)="addVideo()" ios="ios-add-circle-outline" md="md-add-circle"></ion-icon>
+	</div>
+	<!-- Add some description --> 
+	<div class="buttons" *ngIf="editable">
+		<div class="save" *ngIf="editing" (click)="save()">Save</div>
+		<div class="edit" *ngIf="!editing" (click)="edit()">Edit</div>
+		<div class="delete" (click)="delete()">Delete</div>
+	</div>
+</ion-content>

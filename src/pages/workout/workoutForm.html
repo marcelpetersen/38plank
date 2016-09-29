@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Workout Editor</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="workoutForm">
+    <div class="background">
+        <img [src]="(workout | async)?.thumbnail?.imageURL" class="workoutPhoto">
+    </div>
+    <ion-icon class="addPhoto" name="camera" (click)="addPhoto()" *ngIf="editing && editable"></ion-icon>
+    <ul class="social">
+            <li (click)="like()" class="socialButton">
+                <h4>{{(workout | async)?.duration}}</h4>
+                Mins
+            </li>
+            <li (click)="star()" class="socialButton">
+                <h4>{{(workout | async)?.likes}}</h4>
+                Likes
+            </li>
+            <li (click)="completed()" class="socialButton">
+                <h4>{{(workout | async)?.completionCount}}</h4>
+                Completed
+            </li>
+    </ul>
+    <workout [workoutId]="workoutId" [editable]="editable && editing"></workout>
+    <div class="movementList">
+        <h4> Movements </h4>
+        <div class="exercise" *ngFor="let exerciseId of exerciseList | async">
+            <ion-icon name="remove-circle" *ngIf="editable && editing" class="remove-exercise" (click)="removeExercise(exerciseId)"></ion-icon>
+            <exercise [exerciseId]="exerciseId.$value" [editable]="editing"></exercise>
+        </div>    
+        <div (click)="addExercise()" class="addExercise" *ngIf="editing && editable">
+            <div class="button">
+                <ion-icon ios="ios-add-circle-outline" md="md-add-circle"></ion-icon>
+            </div>
+            <div class="properties">
+                Properties
+            </div>
+            <div class="movement">
+                New Movement
+            </div>
+        </div>
+    </div>
+    <ul class="options">
+        <li (click)="delete()" class="optionButton" *ngIf="editable">DELETE</li>
+        <li (click)="save()" class="optionButton" *ngIf="editing && editable">SAVE</li>
+        <li (click)="edit()" class="optionButton" *ngIf="!editing && editable">EDIT</li>
+        <li (click)="start()" class="optionButton">START</li>
+    </ul>
+</ion-content>

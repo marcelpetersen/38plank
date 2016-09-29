@@ -1,0 +1,25 @@
+.movement-comp {
+	.title {
+		padding: 5px;
+
+		.thumbnailImage {
+			display: inline-block;
+			vertical-align: center;
+			width: 40px;
+			height: 40px;
+			border-radius: 40px;
+		}
+
+		.details {
+			padding: 3px;
+			display: inline-block;
+			.name {
+				padding: 0px;
+				margin: 0px;
+				font-size: 1.5em;
+				text-align: left;
+				border: 0px;
+			}
+		}
+	}
+}

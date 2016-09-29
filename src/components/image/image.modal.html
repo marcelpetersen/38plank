@@ -1,0 +1,9 @@
+<ion-content class="imageModal">
+	<div class="close" (click)="close()">
+		<ion-icon name="close"></ion-icon>
+	</div>
+	<img [src]="image.imageURL" class="image">
+	<ul class="menu" (blur)="menu()">
+		<li *ngIf="options.thumbnail" (click)="thumbnail()">Thumbnail</li>
+	</ul>
+</ion-content>

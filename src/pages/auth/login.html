@@ -1,0 +1,15 @@
+<ion-content class="login-page">
+    <h1 class="title"> 38Plank </h1>
+    <div class="facebook">
+        <button (click)="facebookLogin()">
+            <ion-icon name="facebook" class="buttonIcon"></ion-icon>
+            Login With Facebook
+        </button>
+    </div>
+    <div class="email" *ngIf="isDev">
+        <button (click)="emailLogin()">
+            <ion-icon name="mail" class="buttonIcon"></ion-icon>
+            Login With Email
+        </button>
+    </div>
+</ion-content>

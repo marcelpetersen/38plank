@@ -1,0 +1,14 @@
+<ion-content class="movementSearch">
+	<ion-searchbar class="searchBar" (ionInput)="query($event)"></ion-searchbar>
+<!--	<div class="tabs">
+		<a (click)="tabs('workout')" class="option" [ngClass]="{visiting: workout}">Workouts</a>
+		<a (click)="tabs('people')" class="option" [ngClass]="{visiting: people}">People</a>
+	</div> -->
+	<div class="create-movement" (click)="createMovement()">
+		<ion-icon name="add-circle"></ion-icon>
+		<div class="text">Create Movement</div>
+	</div>
+	<div *ngFor="let movement of movementList | async" class="list-item">
+		<movement [movement]="movement" (click)="select(movement)"></movement>
+	</div>
+</ion-content>

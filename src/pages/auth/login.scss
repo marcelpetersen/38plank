@@ -1,0 +1,38 @@
+.login-page {
+	background: map-get($colors , background);
+	text-align: center;
+
+	.title {
+		font-size: 3em;
+		padding-top: 100px;
+		color: map-get($colors, primary);
+	}
+	.button {
+		font-size: 1.2em;
+		width: 250px;
+		height: 60px;
+		padding: 10px;
+		.buttonIcon {
+			float: left;
+		}
+	}
+	.facebook {
+		position: absolute;
+		width: 100%;
+		bottom: 120px;
+		.button {
+			background-color: #3b5998;
+			border: 2px solid #3b5998;
+
+		}
+	}
+	.email {
+		position: absolute;
+		width: 100%;
+		bottom: 50px;
+		.button {
+			background-color: map-get($colors, primary);
+			border: 2px solid map-get($colors, primary);
+		}
+	}
+}

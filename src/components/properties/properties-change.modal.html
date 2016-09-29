@@ -1,0 +1,27 @@
+<ion-content class="properties-change">
+	<form class="alert-box" #propertyForm="ngForm">
+		<div class="header">Change Properties</div>
+		<div class="propertiesList">
+			<div class="property form-group">
+				<label for="weight" class="name">weight</label>
+				<input name="weight" class="form-control" [(ngModel)]="propertiesForm.weight" type="number" required>
+			</div>
+			<div class="property form-group">
+				<label for="repetitions" class="name">repetitions</label>
+				<input name="repetitions" class="form-control" [(ngModel)]="propertiesForm.repetitions" type="number" required>
+			</div>
+			<div class="property form-group">
+				<label for="distance" class="name">distance</label>
+				<input name="distance" class="form-control" [(ngModel)]="propertiesForm.distance" type="number" required>
+			</div>
+			<div class="property form-group">
+				<label for="time" class="name">time</label>
+				<input name="time" class="form-control" [(ngModel)]="propertiesForm.time" type="number" required>
+			</div>
+		</div>
+		<div class="options">
+			<button class="okay" (click)="onSubmit()" [disabled]="!propertyForm.form.valid">Apply</button>
+			<button class="cancel" (click)="cancel()">Cancel</button>
+		</div>
+	</form>
+</ion-content>

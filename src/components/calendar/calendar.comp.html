@@ -1,0 +1,38 @@
+<div class="calendar-comp">
+	<div class="month">
+	</div>
+	<div class="calendar">
+		<!-- Start with closests Sunday -->
+		<div class="week">
+			<div class="day">
+				Sun
+			</div>
+			<div class="day">
+				Mon
+			</div>
+			<div class="day">
+				Tue
+			</div>
+			<div class="day">
+				Wed
+			</div>
+			<div class="day">
+				Thu
+			</div>
+			<div class="day">
+				Fri
+			</div>
+			<div class="day">
+				Sat
+			</div>
+		</div>
+		<div class="week" *ngFor="let week of calendar">
+			<div class="day" *ngFor="let day of week" (click)="selectDay(day)" [ngClass]="{'selected': (selectedDay === day)}">
+				<div>
+          {{day.date.getDate()}}
+        </div>
+        <ion-icon *ngIf="day.workout" name="radio-button-off" class="workoutIcon"></ion-icon>
+			</div>
+		</div>
+	</div>
+</div>

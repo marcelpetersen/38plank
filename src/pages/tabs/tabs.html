@@ -1,0 +1,26 @@
+<div style="z-index: 999;">
+	<div *ngIf="showMenu">
+		<div class="option-label-1">
+			<label class="label">Create Workout</label>
+		</div>
+		<button *ngIf="showMenu" fab fab-right class="floating-option-1" (click)="createWorkout()">
+			<ion-icon name="medal"></ion-icon>
+		</button>
+		<div class="option-label-2">
+			<label class="label">Create Movement</label>
+		</div>
+		<button *ngIf="showMenu" fab fab-right class="floating-option-2" (click)="createMovement()">
+			<ion-icon name="restaurant"></ion-icon>
+		</button>
+	</div>
+	<button fab fab-right class="floating-action" (click)="addMenu()">
+		<ion-icon name="add"></ion-icon>
+	</button>
+</div>
+<ion-tabs>
+  <ion-tab [root]="tab1Root" id="Home" tabIcon="pulse"></ion-tab>
+  <ion-tab [root]="tab2Root" id="Workouts" tabIcon="search"></ion-tab>
+  <ion-tab [root]="tab3Root" id="Team" tabIcon="calendar"></ion-tab>
+  <ion-tab [root]="tab4Root" id="Movements" tabIcon="restaurant"></ion-tab>
+  <ion-tab [root]="tab5Root" id="Me" tabIcon="person"></ion-tab>
+</ion-tabs>

@@ -1,0 +1,16 @@
+<div class="exercise-comp">
+		<div class="thumbnail-image">
+			<img width="70" height="70" [src]="(movement | async)?.thumbnail?.imageURL">
+		</div>
+		<div class="main-properties" (click)="editProperties($event)">
+			<div class="prop" *ngFor="let property of properties | async">
+				<div class="name">
+					{{ property.$value | propertyFormat:property.$key}}
+				</div>
+			</div>
+		</div>
+		<div class="details">
+			<div class="name">{{(movement | async)?.name}}</div>
+			<div class="secondary"><!-- SubType --></div>
+		</div>
+</div>

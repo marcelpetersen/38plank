@@ -1,0 +1,41 @@
+.selectUsername {
+	background-color: rgba( 0, 0, 0, .8);
+	color: white;
+
+	.select {
+		padding-top: 40%;
+		width: 100%;
+		font-family: map-get($fonts, primary);
+		font-size: 1.3em;
+		text-align: center;
+		
+		.username {
+			width: 80%;
+			color: black;
+			padding: 5px;
+			margin-left: 10%;
+			margin-right: 10%;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.username:invalid {
+			border: 2px solid map-get($colors, error);
+		}
+		.username:valid {
+			border: 2px solid map-get($colors, primary);
+		}
+
+		button {
+
+		}
+		.error {
+			background-color: map-get($colors, error);
+			color: white;
+			text-align: center;
+			margin-left: 10%;
+			margin-right: 10%;
+			border-radius: 2px;
+			margin-bottom: 5px;
+		}
+	}
+}

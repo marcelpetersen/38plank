@@ -1,0 +1,8 @@
+<ion-content class="program-page">
+	<img [src]="(program | async)?.photoUrl" class="image">
+	<div class="main">
+		{{(program | async)?.name}}
+		{{programId}}
+		<calendar [programId]="programId"></calendar>
+	</div>
+</ion-content>

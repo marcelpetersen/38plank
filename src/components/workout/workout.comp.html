@@ -1,0 +1,19 @@
+<div class="workout-comp">
+	<div class="workout-title">
+		Workout
+	</div>
+	<div class="workout-main">
+		<div class="workout-summary" (click)="navigate()">
+			<div class="workout-picture">
+				<img [src]="(workout | async)?.thumbnail?.imageURL">
+			</div>
+			<div class="workout-details">
+				<input [disabled]="!editable" class="name" value="{{(workout | async)?.name}}" (blur)="updateName($event)">
+				<div class="creator">@{{(athlete | async)?.username}}</div>
+			</div>
+		</div>
+		<div class="workout-time">
+			Complete
+		</div>
+	</div>
+</div>

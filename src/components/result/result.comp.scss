@@ -1,0 +1,57 @@
+.result-comp {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	.header {
+		height: 40px;
+		width: 100%;
+		background-color: white;
+		padding: 5px;
+		
+		.profile {
+			display: inline-block;
+			height: 30px;
+
+			.profile-picture {
+				display: inline;
+				margin: 0px;
+				padding: 0px;
+				height: 30px;
+				line-height: 30px;
+				img { 
+					vertical-align: middle;
+					width: 30px;
+					height: 30px;
+					border-radius: 15px;
+				}
+			}
+			.name {
+				display: inline;
+				padding-bottom: 10px;
+				padding-left: 5px;
+			}
+			.result {
+				display: inline-block;
+			}
+		}
+		.date {
+			float: right;
+			padding-top: 8px;
+			display: inline-block;
+		}
+	}
+
+	.result {
+		text-align: center;
+		width: 100%;
+		font-size: 1.5em;
+	}
+
+	.description {
+		background-color: white;
+		color: map-get($colors, description);
+		font-family: map-get($fonts, primary);
+		padding-left: 10px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+}

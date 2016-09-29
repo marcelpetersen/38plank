@@ -1,0 +1,48 @@
+<ion-content class="userPage">
+	<button class="settingsButton" (click)="settings()">
+		<ion-icon name="settings"></ion-icon>
+	</button>
+	<div padding class="header" *ngIf="athlete">
+		<img [src]="(athlete | async)?.photoUrl" alt="andrew" class="profile-picture">
+		<h3 class="name"> @{{(athlete | async)?.username}} </h3>
+		<h4 class="team"> {{(athlete | async)?.displayName}} </h4>
+	</div>
+	<div class="tabs">
+		<a (click)="feedTab()" class="option" [ngClass]="{visiting: feed}">Feed</a>
+		<a (click)="contentTab()" class="option" [ngClass]="{visiting: content}">Content</a>
+	</div>
+	<div padding class="content" [hidden]="!content">
+		<div class="results">
+			<div *ngFor="let result of resultList | async">
+				<result [result]="result"></result>
+			</div>
+		</div>
+		<!-- Programs missing -->
+		<div class="workouts">
+			<div *ngFor="let workout of workoutList | async">
+				<workout [workoutId]="workout.$key"></workout>
+			</div>
+		</div>
+		<div class="movements">
+			<div *ngFor="let movement of movementList | async">
+				<movement [movement]="movement"></movement>
+			</div>
+		</div>
+	</div>
+
+	<div class="eventFeed" [hidden]="!feed">
+		<action *ngFor="let action of actionList | async" [actionId]="action.id"></action>
+	</div>
+	<!-- <div padding class="records" *ngIf="records">
+		Personal Records
+		<select [(ngModel)]="selectComplex">
+			<option *ngFor="let complex of complexes | async" value="{{complex.id}}">
+				<complex-movements [complex]=complex></complex-movements>
+			</option>
+		</select>
+		<percentage-calculator [complex]="selectComplex"></percentage-calculator>
+	</div> -->
+	<button (click)="logout()">
+		Logout
+	</button>
+</ion-content>

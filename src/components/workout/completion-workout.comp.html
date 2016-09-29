@@ -1,0 +1,26 @@
+<ion-content class="completion-workout-comp">
+	<div class="back" (click)="back()">
+		<ion-icon name="arrow-back"></ion-icon>
+	</div>
+	<canvas #backgroundCanvas id="backgroundCanvas">
+	</canvas>
+	<canvas #canvas id="radialProgress">
+	</canvas>
+	<div class="timer">
+		<span>
+		{{timeElapsed | clock}}
+		</span>
+	</div>
+	<div class="main">
+	<workout class="workout" [workoutId]="workout.$key"></workout>
+	</div>
+	<div class="exerciseList">
+		<div class="header">MOVEMENT</div>
+		<exercise *ngFor="let exercise of workout.exercises" [exerciseId]="exercise">{{exercise}}</exercise>
+	</div>
+	<div class="footer">
+		<div class="start" *ngIf="!workoutStarted" (click)="start()">START</div>
+		<div class="pause" *ngIf="workoutStarted" (click)="pause()">PAUSE</div>
+		<div class="finish" *ngIf="workoutStarted" (click)="complete()">COMPLETE</div>
+	</div>
+</ion-content>
