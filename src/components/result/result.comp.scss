@@ -48,8 +48,8 @@
 
 	.description {
 		background-color: white;
-		color: map-get($colors, description);
-		font-family: map-get($fonts, primary);
+		color: color($colors, description);
+		font-family: color($fonts, primary);
 		padding-left: 10px;
 		padding-top: 5px;
 		padding-bottom: 5px;

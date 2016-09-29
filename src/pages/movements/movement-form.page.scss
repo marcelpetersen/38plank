@@ -36,7 +36,7 @@
 			padding-bottom: 5px;
 		}
 		font-size: 1.5em;
-		color: map-get($colors, primary);
+		color: color($colors, primary);
 		padding: 10px;
 		height: 100px;
 		margin-left: 10px;
@@ -53,7 +53,7 @@
 				height: 75px;
 			}
 			ion-icon {
-				color: map-get($colors, error);
+				color: color($colors, error);
 				z-index: 1;
 				position: absolute;
 				top: 0;
@@ -79,7 +79,7 @@
 			padding-bottom: 5px;
 		}
 		font-size: 1.5em;
-		color: map-get($colors, primary);
+		color: color($colors, primary);
 		padding: 10px;
 		width: 100%;
 
@@ -95,14 +95,14 @@
 		position: fixed;
 		bottom: 0;
 		width: 100%;
-		background-color: map-get($colors, primary);
+		background-color: color($colors, primary);
 		div {
 			font-size: 1.3em;
 			padding-top: 10px;
 			padding-bottom: 10px;
 			text-align: center;
 			color: white;
-			font-family: map-get($fonts, primary);
+			font-family: color($fonts, primary);
 			width: 48%;
 			display: inline-block;
 		}

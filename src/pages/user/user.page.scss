@@ -10,7 +10,7 @@
 	}
 	.header {
 		text-align: center;
-		background: map-get($colors, background);
+		background: color($colors, background);
 		color: white;
 
 		.profile-picture {
@@ -36,7 +36,7 @@
 
 	.tabs {
 		display: inline-block;
-		background-color: map-get($colors, background);
+		background-color: color($colors, background);
 		width: 100%;
 	
 		.option {
@@ -51,7 +51,7 @@
 		}
 		.visiting {
 			color: rgba(255,255,255,1);
-			border-bottom: 3px solid map-get($colors, button);
+			border-bottom: 3px solid color($colors, button);
 		}
 	}
 }

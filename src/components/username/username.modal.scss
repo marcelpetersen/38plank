@@ -5,7 +5,7 @@
 	.select {
 		padding-top: 40%;
 		width: 100%;
-		font-family: map-get($fonts, primary);
+		font-family: color($fonts, primary);
 		font-size: 1.3em;
 		text-align: center;
 		
@@ -19,17 +19,17 @@
 			margin-bottom: 10px;
 		}
 		.username:invalid {
-			border: 2px solid map-get($colors, error);
+			border: 2px solid color($colors, error);
 		}
 		.username:valid {
-			border: 2px solid map-get($colors, primary);
+			border: 2px solid color($colors, primary);
 		}
 
 		button {
 
 		}
 		.error {
-			background-color: map-get($colors, error);
+			background-color: color($colors, error);
 			color: white;
 			text-align: center;
 			margin-left: 10%;

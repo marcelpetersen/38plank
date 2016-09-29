@@ -3,10 +3,10 @@
 	.result {
 		text-align: center;
 		font-size: 1.5em;
-		font-family: map-get($fonts, primary);
+		font-family: color($fonts, primary);
 		padding-top: 10px;
 		padding-bottom: 10px;
-		border-bottom: 1px solid map-get($colors, border);
+		border-bottom: 1px solid color($colors, border);
 	}
 
 	.photo {
@@ -16,14 +16,14 @@
 	.info {
 
 		padding-top: 5px;
-		border-bottom: 1px solid map-get($colors, border);
+		border-bottom: 1px solid color($colors, border);
 
 		.photoIcon {
 			padding-left: 20px;
 			padding-right: 20px;
 			text-align: center;
 			font-size: 2em;
-			color: map-get($colors, primary);
+			color: color($colors, primary);
 		}
 
 		.description {
@@ -32,7 +32,7 @@
 			width: 15em !important;
 			height: 4em !important;
 			vertical-align: middle;
-			border-left: 1px solid map-get($colors, border);
+			border-left: 1px solid color($colors, border);
 			resize: none;
 		}
 	}

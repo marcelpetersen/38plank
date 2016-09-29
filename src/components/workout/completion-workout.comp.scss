@@ -1,5 +1,5 @@
 .completion-workout-comp {
-	background-color: map-get($colors, background);
+	background-color: color($colors, background);
 	padding-top: 10px;
 
 	.back {
@@ -10,7 +10,7 @@
 		height: 40px;
 		padding: 10px;
 		font-size: 2em;
-		color: map-get($colors, primary);
+		color: color($colors, primary);
 		z-index: 2;
 	}
 	#backgroundCanvas {
@@ -62,11 +62,11 @@
 		.header {
 			width: 100%;
 			font-size: .8em;
-			color: map-get($colors, description);
+			color: color($colors, description);
 			line-height: 40px;
 			padding-left: 10px;
 			height: 40px;
-			border-bottom: 1px solid map-get($colors, border);
+			border-bottom: 1px solid color($colors, border);
 		}
 		background-color: white;
 		height: 100%;
@@ -75,9 +75,9 @@
 		position: fixed;
 		bottom: 0;
 		width: 100%;
-		background-color: map-get($colors, primary);
+		background-color: color($colors, primary);
 		color: white;
-		font-family: map-get($fonts, primary);
+		font-family: color($fonts, primary);
 		font-size: 1.2em;
 		.start {
 			width: 100%;

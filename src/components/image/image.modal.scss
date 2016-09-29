@@ -24,7 +24,7 @@
 		color: white;
 	}
 	.menu {
-		background-color: map-get($colors, background);
+		background-color: color($colors, background);
 		border-bottom-right-radius: 5px;
 		border-bottom-left-radius: 5px;
 		list-style-type: none;
@@ -36,9 +36,9 @@
 		text-align: center;
 		li {
 			color: white;
-			font-family: map-get($fonts, primary);
+			font-family: color($fonts, primary);
 			padding: 10px;
-			background-color: map-get($colors, primary);
+			background-color: color($colors, primary);
 			width: 100%;
 			display: inline-block;
 			font-size: 1.3em;
@@ -47,7 +47,7 @@
 			border-bottom-right-radius: 5px;
 		}
 		li:hover {
-			background-color: map-get($colors, primary);
+			background-color: color($colors, primary);
 
 		}
 	}

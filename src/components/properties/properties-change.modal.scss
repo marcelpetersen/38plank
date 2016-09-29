@@ -14,20 +14,20 @@
 			padding: 10px;
 			text-align: center;
 			font-size: 1.2em;
-			border-bottom: 1px solid map-get($colors, border);
+			border-bottom: 1px solid color($colors, border);
 		}
 		.propertiesList {
 			width: 100%;
 			.property {
-				border-bottom: 1px solid map-get($colors, border);
+				border-bottom: 1px solid color($colors, border);
 				padding: 10px;
 				font-size: 1.2em;
-				font-family: map-get($fonts, primary);
+				font-family: color($fonts, primary);
 				.name {
 
 				}
 				input {
-					border: 1px solid map-get($colors, border);
+					border: 1px solid color($colors, border);
 					text-align: center;
 				}
 			}

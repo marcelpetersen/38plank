@@ -7,7 +7,7 @@
 		font-size: 1.5em;
 		padding: 10px;
 		ion-icon {
-			color: map-get($colors, primary);
+			color: color($colors, primary);
 			font-size: 1.8em;
 			vertical-align: middle;
 			padding-right: 5px;

@@ -1,10 +1,10 @@
 .back-button {
-    color: map-get($colors, primary);
+    color: color($colors, primary);
 }
 
 .workoutForm {
     .background {
-        background-color: map-get($colors, background);
+        background-color: color($colors, background);
         .workoutPhoto {
             width: 100%;
             height: 40%;
@@ -26,7 +26,7 @@
     .header {
         margin-top: -4px;
         padding-top: 4px;
-        background-color: map-get($colors, background);
+        background-color: color($colors, background);
         color: white;
         width: 100%;
         .title {
@@ -38,8 +38,8 @@
     }
 
     .social {
-            color: map-get($colors, primary);
-            background-color: map-get($colors, background);
+            color: color($colors, primary);
+            background-color: color($colors, background);
             list-style-type: none;
             padding: 0;
             margin: 0;
@@ -64,11 +64,11 @@
             padding: 8px;
             margin: 0;
             font-size: .8em;
-            color: map-get($colors, description);
-            border-bottom: 1px solid map-get($colors, border);
+            color: color($colors, description);
+            border-bottom: 1px solid color($colors, border);
         }
         .remove-exercise {
-            color: map-get($colors, error);
+            color: color($colors, error);
             font-size: 2em;
             float: right;
             padding-top: 20px;
@@ -76,8 +76,8 @@
         }
 
         .addExercise {
-            color: map-get($colors, primary);
-            border-bottom: 1px solid map-get($colors, border);
+            color: color($colors, primary);
+            border-bottom: 1px solid color($colors, border);
             height: 70px;
             display: table;
             text-align: center;
@@ -86,23 +86,23 @@
                 padding: 0;
                 font-size: 2em;
                 border-radius: 0;
-                color: map-get($colors, primary);
+                color: color($colors, primary);
                 background-color: white;
                 width: 71px;
                 display: table-cell;
-                border-right: 1px solid map-get($colors, border);
+                border-right: 1px solid color($colors, border);
                 vertical-align: middle;
             }
             .properties {
-                color: map-get($colors, description);
+                color: color($colors, description);
                 width: 70px;
                 display: table-cell;
-                border-right: 1px solid map-get($colors, border);
+                border-right: 1px solid color($colors, border);
                 vertical-align: middle;
 
             }
             .movement {
-                color: map-get($colors, description);
+                color: color($colors, description);
                 display: table-cell;
                 max-width: 50%;
                 vertical-align: middle;
@@ -118,7 +118,7 @@
         position: fixed;
         bottom: 0;
         width: 100%;
-        background-color: map-get($colors, primary);
+        background-color: color($colors, primary);
 
         li {
             color: white;

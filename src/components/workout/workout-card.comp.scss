@@ -2,7 +2,7 @@
 	background-color: white;
 	border-radius: 3px;
 	position: relative;
-	font-family: map-get($fonts, primary);
+	font-family: color($fonts, primary);
 
 	.header {
 		padding: 2px;
@@ -16,7 +16,7 @@
 			vertical-align: middle;
 		}
 		.author {
-			font-family: map-get($fonts, primary);
+			font-family: color($fonts, primary);
 			margin: 0px;
 			display: inline-block;
 			font-size: .8em;
@@ -32,8 +32,8 @@
 			width: 100%;
 		}
 		.title {
-			font-family: map-get($fonts, primary);
-			color: map-get($colors, title);
+			font-family: color($fonts, primary);
+			color: color($colors, title);
 			display: inline-block;
 			padding: 4px;
 			padding-left: 4px;
@@ -49,13 +49,13 @@
 			padding: 0px;
 			font-size: 1.4em;
 			background-color: white;
-			color: map-get($colors, primary);
+			color: color($colors, primary);
 			float: right;
 		}
 		.description {
 			margin: 0;
-			font-family: map-get($fonts, primary);
-			color: map-get($colors, description);
+			font-family: color($fonts, primary);
+			color: color($colors, description);
 			font-size: .7em;
 			padding: 3px;
 			max-height: 2.45em;
@@ -70,11 +70,11 @@
 		background-color: rgba(245,245,245,100);
 		padding-top: 3px;
 		padding-bottom: 3px;
-		color: map-get($colors, description);
+		color: color($colors, description);
 		border-bottom-left-radius: 3px;
 		border-bottom-right-radius: 3px;
 		li {
-			font-family: map-get($fonts, primary);
+			font-family: color($fonts, primary);
 			text-align: center;
 			display: inline-block;
 			width: 31%;
@@ -82,7 +82,7 @@
 			margin: 0px;
 			font-size: .7em;
 			h4 {
-				color: map-get($colors, title);
+				color: color($colors, title);
 				margin: 0;
 				padding: 0;
 				font-size: 1.0em;
