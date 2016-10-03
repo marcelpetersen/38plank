@@ -1,7 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {Result} from '../model/result';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import { Injectable } from '@angular/core';
+import { Result } from '../model/result';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Injectable()
 export class ResultService {

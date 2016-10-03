@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule, NavController } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 // Pages
@@ -147,8 +147,7 @@ export const firebaseConfig = {
     ProgramService,
     ResultService,
     StorageService,
-    WorkoutService,
-    NavController
+    WorkoutService
   ]
 })
 export class AppModule {}

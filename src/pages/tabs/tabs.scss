@@ -8,7 +8,7 @@
 }
 
 .tab-button {
-	background: color($colors, primary);
+	background-color: color($colors, primary);
 	border-top: 0px;
 }
 .tab-button[aria-selected=true]{

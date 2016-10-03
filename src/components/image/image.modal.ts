@@ -53,7 +53,7 @@ export class ImageModal {
       allowEdit: true
     };
 
-    this.camera.getPicture(options).then( (res) => {
+    this.camera.getPicture(options).then( (res: any): void => {
       console.log('Resolved' , res);
       let imageObj = {
         imageURL: res.url,

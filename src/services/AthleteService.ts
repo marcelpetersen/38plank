@@ -1,7 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Toast, NavController} from 'ionic-angular';
-import {Athlete} from '../model/athlete';
-import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
 
@@ -13,8 +10,7 @@ export class AthleteService {
     public workouts = firebase.database().ref('workouts');
     public cachedData: any = {};
 
-    constructor(private nav: NavController,
-                public af: AngularFire) {
+    constructor(public af: AngularFire) {
         /* Get Athlete Information, on creation cache athlete info */
     }
 
@@ -111,7 +107,6 @@ export class AthleteService {
                             if (Math.round(_exercises[i].properties.weight) > Math.round(records[j].properties.weight)) {
                                 //
                                 records[j] = _exercises[i];
-                                this.showToast('New PR!');
                                 console.log('Overwrite PR!', records[j]);
                             }
                         }
@@ -119,7 +114,6 @@ export class AthleteService {
                     // No matching complex, add as new pr 
                     if (!found) {
                         console.log('New Pr!', _exercises[i]);
-                        this.showToast('New PR!');
                         records.push(_exercises[i]);
                     }
                 }
@@ -127,14 +121,6 @@ export class AthleteService {
             // this.athletes.child(_id).child('records').set(records);
         });
             
-    }
-    
-    showToast(message: string) {
-        let toast = Toast.create({
-            message: message,
-            duration: 2000
-        });
-        this.nav.present(toast);
     }
 
 }

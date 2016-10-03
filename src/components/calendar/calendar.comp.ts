@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, OnInit } from '@angular/core';
 import { ProgramService } from '../../services/program.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class CalendarComp implements OnInit {
 
   public selectedDay: any;
   public day: string;
-  public month: string;
+  public month: number;
   public year: any;
   public monthDateStart: string;
   public calendar: Array< Array<any>> = [[], [], [], [], [], []];
@@ -66,27 +66,26 @@ export class CalendarComp implements OnInit {
   }
 
   bootstrap() {
-
     this.month = this.current_date.getMonth();
     this.year = this.current_date.getFullYear();
-    this.firstDay = new Date(this.year , this.month, 1);
-    this.startingDay = this.firstDay.getDay();
-    this.monthLength = this.days_in_month[this.month];
+    let firstDay = new Date(this.year , this.month, 1);
+    let startingDay = firstDay.getDay();
+    let monthLength = this.days_in_month[this.month];
     // Compensate for leap year
     if (this.month === 1) { // February only!
       if ((this.year % 4 === 0 && this.year % 100 !== 0) || this.year % 400 === 0) {
-        this.monthLength = 29;
+         monthLength = 29;
       }
     }
 
     // Generate Calendar Array
-    for (let w = 0; w * 7 < this.monthLength; w++) {
+    for (let w = 0; w * 7 < monthLength; w++) {
       for (let d = 0; d < 7; d++) {
-        if ( w === 0 && d <= this.startingDay) {
+        if ( w === 0 && d <= startingDay) {
           // First week has days that are from the last month
-          this.calendar[w][d] = {date: (new Date(this.year, this.month - 1, this.days_in_month[this.month - 1] - this.startingDay + d)), workout: false};
+          this.calendar[w][d] = {date: (new Date(this.year, this.month - 1, this.days_in_month[this.month - 1] - startingDay + d)), workout: false};
         } else {
-          this.calendar[w][d] = {date: (new Date(this.year, this.month, w * 7 + d - this.startingDay)), workout: false};
+          this.calendar[w][d] = {date: (new Date(this.year, this.month, w * 7 + d - startingDay)), workout: false};
         }
       }
     }

@@ -5,6 +5,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/auth/login';
 import { AngularFire } from 'angularfire2';
 
+declare var mixpanel: any;
+
 @Component({
   template: '<ion-nav hide-nav-bar="true" [root]="rootPage"></ion-nav>'
 })

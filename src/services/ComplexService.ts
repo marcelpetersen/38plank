@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Events} from 'ionic-angular';
 import {Complex} from '../model/complex';
-import {Observable} from 'rxjs/Observable';
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
 
 @Injectable()

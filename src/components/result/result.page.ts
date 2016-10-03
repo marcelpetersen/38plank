@@ -1,11 +1,12 @@
-import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
-import {AthleteService} from '../../services/AthleteService';
-import {ResultService} from '../../services/ResultService';
-import {WorkoutService} from '../../services/WorkoutService';
-import {AuthService} from '../../services/AuthService';
-import {Result} from '../../model/result';
-import {CameraService} from '../../services/CameraService';
+import { Component } from '@angular/core';
+import { Camera } from 'ionic-native';
+import { NavController, NavParams } from 'ionic-angular';
+import { AthleteService } from '../../services/AthleteService';
+import { ResultService } from '../../services/ResultService';
+import { WorkoutService } from '../../services/WorkoutService';
+import { AuthService } from '../../services/AuthService';
+import { Result } from '../../model/result';
+import { CameraService } from '../../services/CameraService';
 
 @Component({
 	templateUrl: 'result.page.html'
@@ -47,7 +48,7 @@ export class ResultPage {
 	      allowEdit: true
 	    };
 
-	    this.camera.getPicture(options).then( (res) => {
+	    this.camera.getPicture(options).then( (res: any): void => {
 	      let imageObj = {
 	        imageURL: res.url,
 	        name: res.img.name

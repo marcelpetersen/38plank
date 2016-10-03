@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, App } from 'ionic-angular';
 import { WorkoutService } from '../../services/WorkoutService';
 import { AthleteService } from '../../services/AthleteService';
 import { FirebaseObjectObservable } from 'angularfire2';
@@ -15,7 +15,9 @@ export class WorkoutCardComponent implements OnInit {
 	public athlete: FirebaseObjectObservable<any>;
 	public workoutPhotoURL;
 
-	constructor(public workouts: WorkoutService,
+	constructor(
+				public app: App,
+				public workouts: WorkoutService,
 				public nav: NavController,
 				public athletes: AthleteService) {
 
@@ -30,7 +32,7 @@ export class WorkoutCardComponent implements OnInit {
 	}
 
 	goToWorkout() {
-		this.nav.rootNav.push(WorkoutForm, {workoutId: this.workoutId});
+		this.app.getRootNav().push(WorkoutForm, {workoutId: this.workoutId});
 	}
 
 }

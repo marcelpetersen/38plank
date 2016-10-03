@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {FirebaseObjectObservable} from 'angularfire2';
+import { App } from 'ionic-angular';
 import {ActionService} from '../../services/ActionService';
 import {AthleteService} from '../../services/AthleteService';
 import {MovementService} from '../../services/MovementService';
@@ -18,7 +19,9 @@ export class ActionComponent implements OnInit {
 	public athlete: FirebaseObjectObservable<any>;
 	public actionOnObject: FirebaseObjectObservable<any>;
 
-	constructor(public nav: NavController,
+	constructor(
+				public app: App,
+				public nav: NavController,
 				public actions: ActionService,
 				public athletes: AthleteService,
 				public movements: MovementService,
@@ -48,12 +51,12 @@ export class ActionComponent implements OnInit {
 	navigate() {
 		switch (this.action.actionOnType) {
 			case 'Movement':
-				this.nav.rootNav.push(MovementForm, {
+				this.app.getRootNav().push(MovementForm, {
 					movementId: this.action.actionOnId
 				});
 				break;
 			case 'Workout':
-				this.nav.rootNav.push(WorkoutForm, {
+				this.app.getRootNav().push(WorkoutForm, {
 					workoutId: this.action.actionOnId
 				});
 				break;

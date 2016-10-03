@@ -1,8 +1,8 @@
 import { OnInit, Component, Input } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, App } from 'ionic-angular';
 import { WorkoutService } from '../../services/WorkoutService';
 import { WorkoutForm } from '../../pages/workout/workoutForm';
-import { FirebaseObjectObservable } from 'angularfire2';
+import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import { AthleteService } from '../../services/AthleteService';
 
 @Component({
@@ -17,9 +17,11 @@ export class WorkoutComponent implements OnInit {
 	@Input() editable: boolean = false;
 	public images: FirebaseListObservable<any>;
 
-	constructor(private workouts: WorkoutService,
-				private athletes: AthleteService,
-				private nav: NavController) {}
+	constructor(
+				public app: App,
+		    public workouts: WorkoutService,
+				public athletes: AthleteService,
+				public nav: NavController) {}
 
 	get diagnostic() {
 		return JSON.stringify(this.workoutId);
@@ -45,7 +47,8 @@ export class WorkoutComponent implements OnInit {
 
 	navigate() {
 		if (!this.editable) {
-			this.nav.rootNav.push(WorkoutForm, {
+
+			this.app.getRootNav().push(WorkoutForm, {
 				workoutId: this.workoutId
 			});
 		}

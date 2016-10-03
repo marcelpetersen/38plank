@@ -1,4 +1,4 @@
-import { NavController } from 'ionic-angular';
+import { App } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { MovementService } from '../../services/MovementService';
 import { Movement } from '../../model/movement';
@@ -13,8 +13,9 @@ export class MovementListPage {
 
   public movementList: Observable<Movement[]>;
 
-  constructor(public movements: MovementService,
-	  		  public nav: NavController,
+  constructor(
+          public app: App,
+          public movements: MovementService,
           public auth: AuthService) {
 
   }
@@ -28,7 +29,7 @@ export class MovementListPage {
   }
 
   moreInfo(movement: Movement) {
-	  this.nav.rootNav.push(MovementForm, {'movementId': movement.$key});
+    this.app.getRootNav().push(MovementForm, {'movementId': movement.$key});
   }
 
 }

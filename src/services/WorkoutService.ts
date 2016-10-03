@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import {Workout} from '../model/workout';
 import {Subject} from 'rxjs/Subject';
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
@@ -74,7 +73,6 @@ export class WorkoutService {
 
         exercisesRef.once('value', (snapshot) => {
                 let list = snapshot.val();
-                let index = list.indexOf(exerciseId);
                 console.log('Starting List' , list);
                 list.splice(exerciseId, 1);
                 console.log('Resulting List', list);

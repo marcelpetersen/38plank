@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavParams, NavController, AlertController, ModalController } from 'ionic-angular';
+import { Camera } from 'ionic-native';
 import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import { MovementService } from '../../services/MovementService';
 import { AuthService } from '../../services/AuthService';
@@ -14,7 +15,7 @@ import { ActionService } from '../../services/ActionService';
 })
 export class MovementForm {
   public movement: FirebaseObjectObservable<Movement>;
-  public onPlaying = false;
+  public onPlaying: boolean = false;
   public images: FirebaseListObservable<any>;
   public editable: boolean = false;
   public editing: boolean = false;
@@ -88,7 +89,7 @@ export class MovementForm {
       allowEdit: true
     };
 
-    this.camera.getPicture(options).then( (res) => {
+    this.camera.getPicture(options).then( (res: any): void => {
       let imageObj = {
         imageURL: res.url,
         name: res.img.name

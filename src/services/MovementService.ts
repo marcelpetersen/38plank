@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Events} from 'ionic-angular';
 import {Observable} from 'rxjs/Observable';
 import {Movement} from '../model/movement';
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';

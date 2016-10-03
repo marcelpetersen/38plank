@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavParams, ViewController, NavController} from 'ionic-angular';
 import {ExerciseService} from '../../services/ExerciseService';
-import {FirebaseListObservable} from 'angularfire2';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
 	templateUrl: 'properties-change.modal.html'

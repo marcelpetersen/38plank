@@ -1,9 +1,8 @@
-import {Injectable, Inject} from '@angular/core';
-import {Platform} from 'ionic-angular';
-import {Camera} from 'ionic-native';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
-import {StorageService} from './StorageService';
-import {AuthService} from './AuthService';
+import { Injectable } from '@angular/core';
+import { Platform } from 'ionic-angular';
+import { Camera } from 'ionic-native';
+import { StorageService } from './StorageService';
+import { AuthService } from './AuthService';
 
 @Injectable()
 export class CameraService {

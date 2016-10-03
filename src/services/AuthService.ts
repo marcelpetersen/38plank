@@ -51,7 +51,7 @@ export class AuthService {
 
             let creds = firebase.auth.FacebookAuthProvider
                 .credential(response.authResponse.accessToken);
-            let scope = new firebase.auth.FacebookAuthProvider();
+                
             console.log('Login Credentials: ' + JSON.stringify(creds));
 
             let providerConfig = {

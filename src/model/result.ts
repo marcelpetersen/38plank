@@ -8,6 +8,7 @@ export class Result {
 	public completionDate: any;
 	public resultType: string;
 	public private: boolean;
+	public image: any;
 
 	constructor(obj?) {
 		this.id = obj && obj.id || '';
@@ -18,5 +19,6 @@ export class Result {
 		this.resultType = obj && obj.resultType || '';
 		this.completionDate = Date.now();
 		this.private = obj && obj.private || false;
+		this.image = obj && obj.image || {};
 	}
 }
