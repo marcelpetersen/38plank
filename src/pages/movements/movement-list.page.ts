@@ -31,5 +31,4 @@ export class MovementListPage {
   moreInfo(movement: Movement) {
     this.app.getRootNav().push(MovementForm, {'movementId': movement.$key});
   }
-
 }

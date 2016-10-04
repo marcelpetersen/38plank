@@ -1,13 +1,17 @@
-import {Injectable} from '@angular/core';
-import {Events} from 'ionic-angular';
-import {AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
-import {Facebook} from 'ionic-native';
+import { Injectable} from '@angular/core';
+import { AngularFire, AuthProviders, AuthMethods, FirebaseAuthState } from 'angularfire2';
+import { Facebook } from 'ionic-native';
 
 @Injectable()
 export class AuthService {
 
-    constructor(public events: Events,
-                public af: AngularFire) {
+    public user: any;
+
+    constructor(public af: AngularFire) {
+        // Watch User here
+        this.af.auth.subscribe( (auth: any): void => {
+            this.user = auth;
+        });
     }
 
     getAuth() {
@@ -51,7 +55,7 @@ export class AuthService {
 
             let creds = firebase.auth.FacebookAuthProvider
                 .credential(response.authResponse.accessToken);
-                
+
             console.log('Login Credentials: ' + JSON.stringify(creds));
 
             let providerConfig = {

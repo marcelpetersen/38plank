@@ -5,16 +5,23 @@ import { Pipe } from '@angular/core';
 	pure: false
  })
 export class ClockPipe {
-	transform(value) {
-		// Transform into minutes & seconds
-		let minutes = Math.floor(value / 60);
-		let seconds = Math.round(value % 60);
+	transform(value): string {
+		// Transform into minutes & seconds, Typescript forcing types here
+		let minutes: number = Math.floor(value / 60);
+		let seconds: number = Math.round(value % 60);
+		let min: string;
+		let sec: string;
+
 		if (minutes < 10) {
-			minutes = '0' + minutes;
+			min = '0' + minutes;
+		} else {
+			min = '' + minutes;
 		}
 		if (seconds < 10) {
-			seconds = '0' + seconds;
+			sec = '0' + seconds;
+		} else {
+			sec = '' + seconds;
 		}
-		return '' + minutes + ':' + seconds;
+		return '' + min + ':' + sec;
 	}
 }

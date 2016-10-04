@@ -63,14 +63,7 @@ export class LoginPage {
         /* Validate */
         _event.preventDefault();
 
-        this.authService.createUser(credentials).catch((error) => {
-            this.error = error;
-            console.warn('Error Signing In: ', error);
-        }).then( (user) => {
-            console.log('Register User Data' , user);
-            this.athletes.createAthlete(user.uid, credentials);
-        });
-
+        this.authService.createUser(credentials);
     }
 
     facebookLogin() {

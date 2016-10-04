@@ -1,21 +1,22 @@
 // Outside Libraries
-import {NavController, NavParams, ModalController} from 'ionic-angular';
-import {Component} from '@angular/core';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { Camera } from 'ionic-native';
+import { Component } from '@angular/core';
 import 'rxjs';
-import {FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
+import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 // Model Objects
-import {Workout} from '../../model/workout';
-import {Exercise} from '../../model/exercise';
-import {Action} from '../../model/action';
+import { Workout } from '../../model/workout';
+import { Exercise } from '../../model/exercise';
+import { Action } from '../../model/action';
 // Services
-import {AuthService} from '../../services/AuthService';
-import {WorkoutService} from '../../services/WorkoutService';
-import {ActionService} from '../../services/ActionService';
-import {CameraService} from '../../services/CameraService';
-import {StorageService} from '../../services/StorageService';
+import { AuthService } from '../../services/AuthService';
+import { WorkoutService } from '../../services/WorkoutService';
+import { ActionService } from '../../services/ActionService';
+import { CameraService } from '../../services/CameraService';
+import { StorageService } from '../../services/StorageService';
 // Components & Models
-import {SearchMovements} from '../../components/movement/movement-search.modal';
-import {CompletionWorkout} from '../../components/workout/completion-workout.comp';
+import { SearchMovements } from '../../components/movement/movement-search.modal';
+import { CompletionWorkout } from '../../components/workout/completion-workout.comp';
 
 @Component({
     templateUrl: 'workoutForm.html'
@@ -27,7 +28,6 @@ export class WorkoutForm {
     public exerciseList: FirebaseListObservable<any>;
     public editable: boolean = false;
     public editing: boolean = false;
-    public workoutId: string;
     error: any;
 
     constructor(public workouts: WorkoutService,
@@ -74,14 +74,14 @@ export class WorkoutForm {
         this.actions.logAction(act);
     }
 
-    addPhoto() {
+    addPhoto(): void {
         let options = {
           sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
           mediaType: Camera.MediaType.PICTURE,
           allowEdit: true
         };
 
-        this.camera.getPicture(options).then( (res) => {
+        this.camera.getPicture(options).then( (res: any): void => {
           let imageObj = {
             imageURL: res.url,
             name: res.img.name

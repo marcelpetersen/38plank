@@ -15,12 +15,12 @@
 		</ion-item>
 		<ion-item>
 			<ion-label>Name</ion-label>
-			<ion-input [(ngModel)]="athlete.name" value="{{(athlete | async)?.name}}" (blur)="updateName()">
+			<ion-input [(ngModel)]="form.name" value="{{(athlete | async)?.name}}" (blur)="updateName()">
 			</ion-input>
 		</ion-item>
 		<ion-item>
 			<ion-label>Team</ion-label>
-			<ion-input [(ngModel)]="athlete.team" value="{{(athlete | async)?.team}}" (blur)="updateTeam()">
+			<ion-input [(ngModel)]="form.team" value="{{(athlete | async)?.team}}" (blur)="updateTeam()">
 			</ion-input>
 		</ion-item>
 	</ion-list>
@@ -30,7 +30,7 @@
 		</ion-list-header>
 		<ion-item>
 			<ion-label>Units</ion-label>
-			<ion-select [(ngModel)]="athlete.units" (ionChange)="changeUnits()">
+			<ion-select [(ngModel)]="form.units" (ionChange)="changeUnits()">
 				<ion-option value="Imperial" checked="true">Imperial</ion-option>
 				<ion-option value="Metric">Metric</ion-option>
 			</ion-select>

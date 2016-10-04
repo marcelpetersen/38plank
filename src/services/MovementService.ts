@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {Movement} from '../model/movement';
-import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
-import {Subject} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Movement } from '../model/movement';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class MovementService {
@@ -69,9 +69,8 @@ export class MovementService {
         });
 
         // Another way of only getting movements of a certain type
-        return list.filter( (moveList, idx, obs) => {
-            // Filter Incoming Array
-            return moveList.filter( (move) => {
+        return list.map( (arr: any[], idx: number) => {
+            return arr.filter( (move) => {
                 return (move.createdBy === id || move.createdBy === 'qaydNqdgrtYDxslZ86QT0gdw7yi2');
             });
         });

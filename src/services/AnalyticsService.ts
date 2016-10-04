@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {GoogleAnalytics} from 'ionic-native';
+import { Injectable } from '@angular/core';
+import { GoogleAnalytics } from 'ionic-native';
 
 @Injectable()
 export class AnalyticsService {
@@ -8,7 +8,7 @@ export class AnalyticsService {
 
     logEvent(event: any) {
     	console.log('Event Logged');
-    	GoogleAnalytics.logEvent(event.type, event.properties);
+    	GoogleAnalytics.trackEvent(event.type, event.properties);
     }
 
     trackView(page, url) {

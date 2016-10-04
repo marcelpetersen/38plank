@@ -4,6 +4,8 @@ import { Camera } from 'ionic-native';
 import { StorageService } from './StorageService';
 import { AuthService } from './AuthService';
 
+declare var window: any;
+
 @Injectable()
 export class CameraService {
 
@@ -12,14 +14,14 @@ export class CameraService {
                 public auth: AuthService) {}
 
     getPicture(options) {
-        return new Promise((resolve, reject) => {
-          Camera.getPicture(options).then( (uri) => {
+        return new Promise((resolve, reject): void => {
+          Camera.getPicture(options).then( (uri: any): void => {
             window.resolveLocalFileSystemURL( uri , (fileEntry) => {
 
               fileEntry.file( (resFile) => {
                 let reader = new FileReader();
-                reader.onloadend = (event) => {
-                  var imgBlob = new Blob( [event.target.result], {type: 'image/jpeg'});
+                reader.onloadend = (event: any) => {
+                  var imgBlob: any = new Blob( [event.target.result], {type: 'image/jpeg'});
                   imgBlob.name = '' + this.auth.id + (Date.now()) + '.jpg';
 
                   let upload = this.storage.addImage(imgBlob.name , imgBlob);
@@ -36,10 +38,10 @@ export class CameraService {
                 reader.readAsArrayBuffer(resFile);
               });
             });
-          }, (err) => {
+          }, (err: any): void => {
               console.log('Camera Error');
               reject(err);
-          }, options);
+          });
       });
     }
 }

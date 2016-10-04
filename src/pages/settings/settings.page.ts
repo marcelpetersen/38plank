@@ -11,21 +11,22 @@ export class SettingsPage {
 
 	public athlete: FirebaseObjectObservable<Athlete[]>;
 	public units: string;
+  public form: any;
 
-    constructor(private athletes: AthleteService,
-			    private auth: AuthService) {
-		this.athlete = this.athletes.getAthlete(this.auth.id);
-    }
+  constructor(private athletes: AthleteService,
+	    private auth: AuthService) {
+	   this.athlete = this.athletes.getAthlete(this.auth.id);
+  }
 
-    changeUnits() {
-		this.athlete.update({ 'units': this.athlete.units });
-    }
+  changeUnits() {
+	 this.athlete.update({ 'units': this.form.units });
+  }
 
-    updateName() {
-		this.athlete.update({ 'name': this.athlete.name });
-    }
-
+  updateName() {
+	 this.athlete.update({ 'name': this.form.name });
+  }
+  
 	updateTeam() {
-		this.athlete.update({ 'team': this.athlete.team });
-    }
+		this.athlete.update({ 'team': this.form.team });
+  }
 }
