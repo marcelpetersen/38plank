@@ -18,6 +18,7 @@ export class LoginPage {
                 public athletes: AthleteService,
                 public af: AngularFire,
                 public platform: Platform) {
+        console.log('Creating Login Page');
         this.platform = platform;
         console.log(JSON.stringify(this.platform.platforms()));
         if (!this.platform.is('cordova')) {
