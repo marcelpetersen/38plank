@@ -35,4 +35,12 @@ export class WorkoutCardComponent implements OnInit {
 		this.app.getRootNav().push(WorkoutForm, {workoutId: this.workoutId});
 	}
 
+	like(): void {
+
+	}
+
+	star(): void {
+		
+	}
+
 }

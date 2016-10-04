@@ -59,7 +59,7 @@ export class MovementService {
         return this.af.database.list('/movements/' + id + '/images');
     }
 
-    getMovementsByName(id: string, name: Subject<any>): FirebaseListObservable<any> {
+    getMovementsByName(id: string, name: Subject<any>): Observable<any[]> {
         // Start with movements accesable to the user
         let list = this.af.database.list('/movements', {
                 query: {

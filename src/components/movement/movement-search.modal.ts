@@ -5,8 +5,8 @@ import { Exercise } from '../../model/Exercise';
 import { MovementService } from '../../services/MovementService';
 import { ExerciseService } from '../../services/ExerciseService';
 import { WorkoutService } from '../../services/WorkoutService';
-import { FirebaseListObservable } from 'angularfire2';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../../services/AuthService';
 import { MovementForm } from '../../pages/movements/movement-form.page';
 
@@ -18,12 +18,12 @@ export class SearchMovements {
   public options: any;
   public showMenu: boolean = false;
   public error: any;
-  public movementList: FirebaseListObservable<Movement>;
+  public movementList: Observable<any[]>;
   public queryTerm: Subject<any> = new Subject();
   public workoutId: string;
 
   constructor(
-    private viewCtrl: ViewController,
+    public viewCtrl: ViewController,
     public params: NavParams,
     public movements: MovementService,
     public exercises: ExerciseService,

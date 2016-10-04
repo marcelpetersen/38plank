@@ -28,7 +28,7 @@
 	<div class="videos">
 		<div class="text">Videos</div>
 		<div class="videoList">
-			<img *ngFor="let videoURL of movement.videos" src="videoURL">
+			<img *ngFor="let videoURL of (movement | async)?.videos" src="videoURL">
 		</div>
 		<ion-icon class="addVideo" (click)="addVideo()" ios="ios-add-circle-outline" md="md-add-circle"></ion-icon>
 	</div>

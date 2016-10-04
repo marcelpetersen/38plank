@@ -123,6 +123,14 @@ export class WorkoutForm {
         this.editing = true;
     }
 
+    like(): void {
+
+    }
+
+    star(): void {
+        
+    }
+
     delete() {
         this.workouts.deleteWorkout(this.workoutId);
         this.nav.pop();

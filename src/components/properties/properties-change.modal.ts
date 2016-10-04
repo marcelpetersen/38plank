@@ -26,7 +26,7 @@ export class PropertiesChange {
 						this.propertiesForm[property.$key] = property.$value;
 					});
 				}, (error) => {
-					console.warn('Error', error);
+					console.warn(error);
 				}, () => {
 					console.log('Complete properties');
 				});
@@ -37,8 +37,7 @@ export class PropertiesChange {
 		this.nav.pop();
 	}
 
-	onSubmit(val) {
-		console.log('val' , val);
+	onSubmit() {
 		console.log('Form Submit', this.propertiesForm);
 		this.exercise.update({'properties': this.propertiesForm}).catch( (error) => {
 			console.log('Update error', error);

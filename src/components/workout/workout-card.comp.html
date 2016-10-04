@@ -10,7 +10,7 @@
 	<div class="about">
 		<div class="row">
 			<h4 class="title">{{(workout | async)?.name}}</h4>
-			<div (click)="addWorkout()" class="addWorkout">
+			<div class="addWorkout">
 				<ion-icon ios="ios-add-circle-outline" md="md-add-circle"></ion-icon>
 			</div>
 		</div>
@@ -27,7 +27,7 @@
 			<h4>{{(workout | async)?.likes}}</h4>
 			Likes
 		</li>
-		<li (click)="completed()" class="socialButton">
+		<li class="socialButton">
 			<h4>{{(workout | async)?.completions}}</h4>
 			Completed
 		</li>

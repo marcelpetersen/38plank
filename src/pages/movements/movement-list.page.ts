@@ -12,6 +12,8 @@ import { AuthService } from '../../services/AuthService';
 export class MovementListPage {
 
   public movementList: Observable<Movement[]>;
+  // Search isnt implemented
+  public searchQuery: any;
 
   constructor(
           public app: App,
@@ -22,13 +24,14 @@ export class MovementListPage {
 
   ngOnInit() {
 	  this.movementList = this.movements.getMovements(this.auth.id);
-    this.movementList.subscribe( (data) => {
-      console.log('Movement List: ', data);
-    });
 	  // this.movements.bootstrap();
   }
 
   moreInfo(movement: Movement) {
     this.app.getRootNav().push(MovementForm, {'movementId': movement.$key});
+  }
+
+  getMovements($event): void {
+
   }
 }
