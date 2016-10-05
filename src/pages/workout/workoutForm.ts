@@ -75,22 +75,14 @@ export class WorkoutForm {
     }
 
     addPhoto(): void {
-        let options = {
-          sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-          mediaType: Camera.MediaType.PICTURE,
-          allowEdit: true
-        };
 
-        this.camera.getPicture(options).then( (res: any): void => {
-          let imageObj = {
-            imageURL: res.url,
-            name: res.img.name
-          };
+        this.camera.getPicture().then( (res: any): void => {
+          let imageObj = { imageURL: res };
           this.workout.update({
               thumbnail: imageObj
           });
         }).catch((error) => {
-          console.warn('Error Occured' + JSON.stringify(error));
+          console.warn('Add Photo Error Occured: ' + JSON.stringify(error));
         });
     }
 
@@ -128,7 +120,7 @@ export class WorkoutForm {
     }
 
     star(): void {
-        
+
     }
 
     delete() {

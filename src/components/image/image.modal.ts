@@ -47,13 +47,8 @@ export class ImageModal {
   addPhoto() {
     /* Camera */
         /* Select and upload Image from service */
-    let options = {
-      sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-      mediaType: Camera.MediaType.PICTURE,
-      allowEdit: true
-    };
 
-    this.camera.getPicture(options).then( (res: any): void => {
+    this.camera.getPicture().then( (res: any): void => {
       console.log('Resolved' , res);
       let imageObj = {
         imageURL: res.url,

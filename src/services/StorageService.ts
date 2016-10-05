@@ -9,6 +9,6 @@ export class StorageService {
 	}
 
 	addImage(name, img) {
-		return this.imageRef.child(img.name).put(img);
+		return this.imageRef.child(name).put(img);
 	}
 }

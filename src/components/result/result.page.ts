@@ -42,13 +42,8 @@ export class ResultPage {
 	addPhoto() {
 		console.log('Image Options');
 		/* Select and upload Image from service */
-	    let options = {
-	      sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-	      mediaType: Camera.MediaType.PICTURE,
-	      allowEdit: true
-	    };
 
-	    this.camera.getPicture(options).then( (res: any): void => {
+	    this.camera.getPicture().then( (res: any): void => {
 	      let imageObj = {
 	        imageURL: res.url,
 	        name: res.img.name
