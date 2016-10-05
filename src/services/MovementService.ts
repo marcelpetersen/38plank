@@ -51,8 +51,8 @@ export class MovementService {
         });
     }
 
-    createMovement(movement: Movement): string {
-        return this.af.database.list('/movements').push(movement).key;
+    createMovement(movement: Movement): Promise<any> {
+        return this.af.database.list('/movements').push(movement);
     }
 
     getImages(id: string): FirebaseListObservable<any> {

@@ -20,6 +20,7 @@ export class MovementForm {
   public editable: boolean = false;
   public editing: boolean = false;
   public id: string;
+  public error: any;
 
   constructor(public movements: MovementService,
               public auth: AuthService,
@@ -33,7 +34,15 @@ export class MovementForm {
     if (this.params && this.params.get('movementId')) {
       this.id = this.params.get('movementId');
     } else {
-      this.id = this.movements.createMovement(new Movement({ createdBy: this.auth.id }));
+      const promise = this.movements.createMovement(new Movement({ createdBy: this.auth.id }))
+      this.id = promise.key;
+      console.log('id', this.id);
+      promise.then( (success) => {
+        console.log('Created Movement: ' + success);
+      }).catch( (error) => {
+        console.warn('Error Creating Movement: ' + JSON.stringify(error));
+        this.error = error;
+      });
       this.addAction();
       this.editing = true;
     }
@@ -61,7 +70,7 @@ export class MovementForm {
 
   updateName($event) {
     console.log($event.target.value, ' Updating Name');
-    this.movement.update({name: $event.target.value});
+    const promise = this.movement.update({name: $event.target.value});
   }
 
   edit() {

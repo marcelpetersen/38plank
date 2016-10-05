@@ -8,10 +8,8 @@ export class Movement {
 	public thumbnail: string;
 	public createdBy: string;
 	public images: Array<any>;
-	public $key: string;
 
 	constructor(obj?: any) {
-		this.$key = obj && obj.$key || '';
 		this.createdBy = obj && obj.createdBy || '';
 		this.name = obj && obj.name || '';
 		this.type = obj && obj.type || 'Custom';
@@ -22,4 +20,5 @@ export class Movement {
 		this.thumbnail = obj && obj.thumbnail || '';
 		this.images = obj && obj.images || [];
 	}
+
 }
