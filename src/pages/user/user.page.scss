@@ -1,4 +1,10 @@
 .userPage {
+	button {
+		font-size: 1.2em;
+		color: white;
+		background-color: color($colors, primary);
+		padding: 8px;
+	}
 	.settingsButton {
 		border: 0px;
 		background: transparent;
