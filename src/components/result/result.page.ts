@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Camera } from 'ionic-native';
 import { NavController, NavParams } from 'ionic-angular';
 import { AthleteService } from '../../services/AthleteService';
 import { ResultService } from '../../services/ResultService';

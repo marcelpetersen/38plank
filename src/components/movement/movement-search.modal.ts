@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, NavParams } from 'ionic-angular';
-import { Movement } from '../../model/movement';
 import { Exercise } from '../../model/Exercise';
 import { MovementService } from '../../services/MovementService';
 import { ExerciseService } from '../../services/ExerciseService';

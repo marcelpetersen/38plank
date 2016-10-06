@@ -8,6 +8,7 @@ export class Movement {
 	public thumbnail: string;
 	public createdBy: string;
 	public images: Array<any>;
+	public $key: string;
 
 	constructor(obj?: any) {
 		this.createdBy = obj && obj.createdBy || '';

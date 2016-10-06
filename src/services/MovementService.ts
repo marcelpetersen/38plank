@@ -51,7 +51,7 @@ export class MovementService {
         });
     }
 
-    createMovement(movement: Movement): Promise<any> {
+    createMovement(movement: Movement) {
         return this.af.database.list('/movements').push(movement);
     }
 

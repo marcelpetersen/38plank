@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavParams, NavController, AlertController, ModalController } from 'ionic-angular';
-import { Camera } from 'ionic-native';
 import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import { MovementService } from '../../services/MovementService';
 import { AuthService } from '../../services/AuthService';
@@ -34,7 +33,7 @@ export class MovementForm {
     if (this.params && this.params.get('movementId')) {
       this.id = this.params.get('movementId');
     } else {
-      const promise = this.movements.createMovement(new Movement({ createdBy: this.auth.id }))
+      const promise: any = this.movements.createMovement(new Movement({ createdBy: this.auth.id }))
       this.id = promise.key;
       console.log('id', this.id);
       promise.then( (success) => {
@@ -70,7 +69,7 @@ export class MovementForm {
 
   updateName($event) {
     console.log($event.target.value, ' Updating Name');
-    const promise = this.movement.update({name: $event.target.value});
+    this.movement.update({name: $event.target.value});
   }
 
   edit() {

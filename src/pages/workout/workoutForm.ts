@@ -1,6 +1,5 @@
 // Outside Libraries
 import { NavController, NavParams, ModalController } from 'ionic-angular';
-import { Camera } from 'ionic-native';
 import { Component } from '@angular/core';
 import 'rxjs';
 import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';

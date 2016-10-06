@@ -11,7 +11,7 @@ declare var mixpanel: any;
   template: '<ion-nav hide-nav-bar="true" [root]="rootPage"></ion-nav>'
 })
 export class MyApp {
-  rootPage: any = TabsPage;
+  rootPage: any = LoginPage;
 
   constructor(public platform: Platform,
               public events: Events,
@@ -40,15 +40,8 @@ export class MyApp {
 
   listenToLoginEvents() {
 
-    firebase.auth().onAuthStateChanged( (user) => {
+    this.af.auth.subscribe( (user) => {
       if (user) {
-        console.log('Mixpanel: ' , mixpanel, user);
-        mixpanel.register({
-          userid: user.uid,
-          displayName: user.displayName,
-          email: user.email
-        });
-        mixpanel.track('Login');
         // User is signed in.
         console.log('Firebase Auth: ' , user);
         this.rootPage = TabsPage;
