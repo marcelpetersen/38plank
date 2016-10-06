@@ -4,7 +4,7 @@
 		</div>
 		<div class="main-properties" (click)="editProperties($event)">
 			<div class="prop" *ngFor="let property of properties | async">
-				<div class="name">
+				<div class="name" *ngIf="property.$value !== 0">
 					{{ property.$value | propertyFormat:property.$key}}
 				</div>
 			</div>

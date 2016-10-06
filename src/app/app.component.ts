@@ -25,7 +25,6 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
 
       /* Cordova */
-      Splashscreen.hide();
       StatusBar.styleDefault();
       GoogleAnalytics.startTrackerWithId('UA-75849044-2');
     });
@@ -45,10 +44,12 @@ export class MyApp {
         // User is signed in.
         console.log('Firebase Auth: ' , user);
         this.rootPage = TabsPage;
+        Splashscreen.hide();
       } else {
         // No user is signed in.
         console.log('Firebase Auth None');
         this.rootPage = LoginPage;
+        Splashscreen.hide();
       }
     });
    }
