@@ -30,7 +30,8 @@
 
   <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
-
+  <!-- Polyfill for intl, this should be included in future ionic releases -->
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script> 
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 
