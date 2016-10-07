@@ -4,6 +4,7 @@ import { MovementService } from '../../services/MovementService';
 import { Movement } from '../../model/movement';
 import { MovementForm } from './movement-form.page';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import { AuthService } from '../../services/AuthService';
 
 @Component({
@@ -13,18 +14,16 @@ export class MovementListPage {
 
   public movementList: Observable<Movement[]>;
   // Search isnt implemented
-  public searchQuery: any;
+  public searchQuery: Subject<string> = new Subject();
 
   constructor(
           public app: App,
           public movements: MovementService,
           public auth: AuthService) {
-
-  }
-
-  ngOnInit() {
-	  this.movementList = this.movements.getMovements(this.auth.id);
-	  // this.movements.bootstrap();
+          this.movementList = this.movements.getMovementsByName(this.auth.id, this.searchQuery);
+          this.movementList.subscribe( (data) => {
+            console.log('Movement List:' , data);
+          });
   }
 
   moreInfo(movement: Movement) {
@@ -32,6 +31,6 @@ export class MovementListPage {
   }
 
   getMovements($event): void {
-
+    this.searchQuery.next($event.target.value);
   }
 }

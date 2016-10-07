@@ -1,6 +1,6 @@
 <ion-content class="movement-list">
-	<ion-item class="searchBar">
-		<ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getMovements($event)"></ion-searchbar>
+	<ion-item class="search-bar">
+		<ion-searchbar (ionInput)="getMovements($event)"></ion-searchbar>
 	</ion-item>
 	<ion-list class="searchResults">
 		<ion-item *ngFor="let movement of movementList | async" (click)="moreInfo(movement)">

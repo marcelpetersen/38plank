@@ -7,6 +7,8 @@
 	<div class="header">
 		<video class="mainVideo" width="100%" controls [src]="(movement | async)?.videoURL || 'https://firebasestorage.googleapis.com/v0/b/popping-inferno-7577.appspot.com/o/videos%2FThe%20Snatch.mp4?alt=media&token=06f2c8f6-50b8-444d-8a03-81f7b7049b1d'"></video>
 	</div>
+
+	<!-- Refactor into movement component -->
 	<div class="title">
 		<img class="thumbnailImage" [src]="(movement | async)?.thumbnail?.imageURL">
 		<div class="details">
@@ -17,20 +19,8 @@
 			</div>
 		</div>
 	</div>
-	<ion-scroll scrollX="true" class="images">
-			<div class="text">Images</div>
-			<div class="photos" *ngFor="let image of images | async">
-				<img class="photo" [src]="image.imageURL" (click)="imageOptions(image)">
-				<ion-icon *ngIf="editing && editable" (click)="deletePhoto(image)" name="remove-circle"></ion-icon>
-			</div>
-			<ion-icon class="addPhoto" (click)="addImage()" ios="ios-add-circle-outline" md="md-add-circle" *ngIf="editing && editable"></ion-icon>
-	</ion-scroll>
-	<div class="videos">
-		<div class="text">Videos</div>
-		<div class="videoList">
-			<img *ngFor="let videoURL of (movement | async)?.videos" src="videoURL">
-		</div>
-		<ion-icon class="addVideo" (click)="addVideo()" ios="ios-add-circle-outline" md="md-add-circle"></ion-icon>
+	<div class="content">
+		<content-grid [id]="id" [type]="movement"></content-grid>
 	</div>
 	<!-- Add some description --> 
 	<div class="buttons" *ngIf="editable">

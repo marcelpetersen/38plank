@@ -32,6 +32,7 @@ import { UserNameModal } from '../components/username/username.modal';
 import { CompletionWorkout } from '../components/workout/completion-workout.comp';
 import { WorkoutCardComponent } from '../components/workout/workout-card.comp';
 import { WorkoutComponent } from '../components/workout/workout.comp';
+import { ContentGridComponent } from '../components/content/content-grid.comp';
 
 // Services
 import { ActionService } from '../services/ActionService';
@@ -95,6 +96,7 @@ export const firebaseConfig = {
     CompletionWorkout,
     WorkoutCardComponent,
     WorkoutComponent,
+    ContentGridComponent,
     IntegerPipe,
     PropertiesFormatter,
     ReversePipe,

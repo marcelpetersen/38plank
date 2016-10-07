@@ -76,7 +76,7 @@ $fonts: (
 
 $ionicons-font-path: "../assets/fonts";
 @import "ionicons";
-
+@import "../assets/icons/_flaticon";
 
 // Components
 @import "../components/workout/workout.comp";
@@ -103,3 +103,5 @@ $ionicons-font-path: "../assets/fonts";
 @import "../components/properties/properties-change.modal";
 @import "../components/calendar/calendar.comp";
 @import "../pages/program/program.page";
+@import "../components/content/content-grid.comp";
+

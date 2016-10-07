@@ -22,6 +22,7 @@ export class TabsPage {
   tab3Root: any = ProgramPage;
   tab4Root: any = MovementListPage;
   tab5Root: any = UserPage;
+  dev: boolean = false;
 
   public showMenu: boolean = false;
 

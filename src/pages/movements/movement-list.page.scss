@@ -1,3 +1,10 @@
 .movement-list {
 	background-color: color($colors, background);
+  .search-bar {
+    background-color: color($colors, background);
+
+    .item-inner {
+      border: 0;
+    }
+  }
 }
