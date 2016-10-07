@@ -1,7 +1,7 @@
 import { MenuController, Platform } from 'ionic-angular';
-import { AnalyticsService } from '../../services/AnalyticsService';
+import { AnalyticsService } from '../../services/analytics.service';
 import { Component } from '@angular/core';
-import { ResultService } from '../../services/ResultService';
+import { ResultService } from '../../services/result.service';
 import { Observable } from 'rxjs/Observable';
 
 

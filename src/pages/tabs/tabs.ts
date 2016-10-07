@@ -8,8 +8,8 @@ import { DiscoverPage } from '../discover/discover.page';
 import { ProgramPage } from '../program/program.page';
 import { MovementForm } from '../movements/movement-form.page';
 import { UserNameModal } from '../../components/username/username.modal';
-import { AuthService } from '../../services/AuthService';
-import { AthleteService } from '../../services/AthleteService';
+import { AuthService } from '../../services/auth.service';
+import { AthleteService } from '../../services/athlete.service';
 
 @Component({
   templateUrl: 'tabs.html'

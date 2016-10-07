@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AthleteService } from '../../services/AthleteService';
-import { WorkoutService } from '../../services/WorkoutService';
+import { AthleteService } from '../../services/athlete.service';
+import { WorkoutService } from '../../services/workout.service';
 import { WorkoutForm } from '../../pages/workout/workoutForm';
 import { FirebaseObjectObservable } from 'angularfire2';
 

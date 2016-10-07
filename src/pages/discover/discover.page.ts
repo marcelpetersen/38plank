@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {WorkoutService} from '../../services/WorkoutService';
+import {WorkoutService} from '../../services/workout.service';
 import {FirebaseListObservable} from 'angularfire2';
 // Temporary to find how to query
 import {AngularFire} from 'angularfire2';

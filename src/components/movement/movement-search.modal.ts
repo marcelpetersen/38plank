@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, NavParams } from 'ionic-angular';
 import { Exercise } from '../../model/Exercise';
-import { MovementService } from '../../services/MovementService';
-import { ExerciseService } from '../../services/ExerciseService';
-import { WorkoutService } from '../../services/WorkoutService';
+import { MovementService } from '../../services/movement.service';
+import { ExerciseService } from '../../services/exercise.service';
+import { WorkoutService } from '../../services/workout.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import { AuthService } from '../../services/AuthService';
+import { AuthService } from '../../services/auth.service';
 import { MovementForm } from '../../pages/movements/movement-form.page';
 
 @Component({

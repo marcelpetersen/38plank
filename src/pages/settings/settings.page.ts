@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {AuthService} from '../../services/AuthService';
-import {AthleteService} from '../../services/AthleteService';
+import {AuthService} from '../../services/auth.service';
+import {AthleteService} from '../../services/athlete.service';
 import {FirebaseObjectObservable} from 'angularfire2';
 import {Athlete} from '../../model/Athlete';
 

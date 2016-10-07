@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AthleteService } from '../../services/AthleteService';
-import { ResultService } from '../../services/ResultService';
-import { WorkoutService } from '../../services/WorkoutService';
-import { AuthService } from '../../services/AuthService';
+import { AthleteService } from '../../services/athlete.service';
+import { ResultService } from '../../services/result.service';
+import { WorkoutService } from '../../services/workout.service';
+import { AuthService } from '../../services/auth.service';
 import { Result } from '../../model/result';
-import { CameraService } from '../../services/CameraService';
+import { CameraService } from '../../services/camera.service';
 
 @Component({
 	templateUrl: 'result.page.html'

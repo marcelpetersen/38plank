@@ -1,7 +1,7 @@
 import { Platform } from 'ionic-angular';
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/AuthService';
-import { AthleteService } from '../../services/AthleteService';
+import { AuthService } from '../../services/auth.service';
+import { AthleteService } from '../../services/athlete.service';
 import { AngularFire } from 'angularfire2';
 
 @Component({

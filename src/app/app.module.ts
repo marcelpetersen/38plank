@@ -35,18 +35,18 @@ import { WorkoutComponent } from '../components/workout/workout.comp';
 import { ContentGridComponent } from '../components/content/content-grid.comp';
 
 // Services
-import { ActionService } from '../services/ActionService';
-import { AnalyticsService } from '../services/AnalyticsService';
-import { AthleteService } from '../services/AthleteService';
-import { AuthService } from '../services/AuthService';
-import { CameraService } from '../services/CameraService';
-import { ComplexService } from '../services/ComplexService';
-import { ExerciseService } from '../services/ExerciseService';
-import { MovementService } from '../services/MovementService';
+import { ActionService } from '../services/action.service';
+import { AnalyticsService } from '../services/analytics.service';
+import { AthleteService } from '../services/athlete.service';
+import { AuthService } from '../services/auth.service';
+import { CameraService } from '../services/camera.service';
+import { ComplexService } from '../services/complex.service';
+import { ExerciseService } from '../services/exercise.service';
+import { MovementService } from '../services/movement.service';
 import { ProgramService } from '../services/program.service';
-import { ResultService } from '../services/ResultService';
-import { StorageService } from '../services/StorageService';
-import { WorkoutService } from '../services/WorkoutService';
+import { ResultService } from '../services/result.service';
+import { StorageService } from '../services/storage.service';
+import { WorkoutService } from '../services/workout.service';
 
 // Pipes
 import { IntegerPipe } from '../pipes/integer.pipe';

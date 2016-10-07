@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Camera } from 'ionic-native';
-import { StorageService } from './StorageService';
-import { AuthService } from './AuthService';
+import { StorageService } from './storage.service';
+import { AuthService } from './auth.service';
 
 declare var window: any;
 

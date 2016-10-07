@@ -2,10 +2,10 @@ import {Component, OnInit, Input} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {FirebaseObjectObservable} from 'angularfire2';
 import { App } from 'ionic-angular';
-import {ActionService} from '../../services/ActionService';
-import {AthleteService} from '../../services/AthleteService';
-import {MovementService} from '../../services/MovementService';
-import {WorkoutService} from '../../services/WorkoutService';
+import {ActionService} from '../../services/action.service';
+import {AthleteService} from '../../services/athlete.service';
+import {MovementService} from '../../services/movement.service';
+import {WorkoutService} from '../../services/workout.service';
 import {MovementForm} from '../../pages/movements/movement-form.page';
 import {WorkoutForm} from '../../pages/workout/workoutForm';
 

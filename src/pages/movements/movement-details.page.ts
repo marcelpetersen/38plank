@@ -1,6 +1,6 @@
 import {NavController, NavParams} from 'ionic-angular';
 import {Component} from '@angular/core';
-import {MovementService} from '../../services/MovementService';
+import {MovementService} from '../../services/movement.service';
 import {Movement} from '../../model/movement';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 @Component({

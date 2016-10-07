@@ -2,8 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ModalController} from 'ionic-angular';
 import {Movement} from '../../model/movement';
 import {Exercise} from '../../model/exercise';
-import {MovementService} from '../../services/MovementService';
-import {ExerciseService} from '../../services/ExerciseService';
+import {MovementService} from '../../services/movement.service';
+import {ExerciseService} from '../../services/exercise.service';
 import {FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
 import {PropertiesChange} from '../properties/properties-change.modal';
 

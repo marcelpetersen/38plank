@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavController, App } from 'ionic-angular';
-import { WorkoutService } from '../../services/WorkoutService';
-import { AthleteService } from '../../services/AthleteService';
+import { WorkoutService } from '../../services/workout.service';
+import { AthleteService } from '../../services/athlete.service';
 import { FirebaseObjectObservable } from 'angularfire2';
 import { WorkoutForm } from '../../pages/workout/workoutForm';
 
@@ -40,7 +40,7 @@ export class WorkoutCardComponent implements OnInit {
 	}
 
 	star(): void {
-		
+
 	}
 
 }

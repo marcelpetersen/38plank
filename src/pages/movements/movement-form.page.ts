@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NavParams, NavController, AlertController, ModalController } from 'ionic-angular';
 import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
-import { MovementService } from '../../services/MovementService';
-import { AuthService } from '../../services/AuthService';
+import { MovementService } from '../../services/movement.service';
+import { AuthService } from '../../services/auth.service';
 import { Movement } from '../../model/movement';
 import { Action } from '../../model/action';
 import { ImageModal } from '../../components/image/image.modal';
-import { CameraService } from '../../services/CameraService';
-import { ActionService } from '../../services/ActionService';
+import { CameraService } from '../../services/camera.service';
+import { ActionService } from '../../services/action.service';
 
 @Component({
   templateUrl: 'movement-form.page.html'

@@ -1,9 +1,9 @@
 import { ViewChild, AfterViewInit, Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Action } from '../../model/action';
-import { WorkoutService } from '../../services/WorkoutService';
-import { ActionService } from '../../services/ActionService';
-import { AuthService } from '../../services/AuthService';
+import { WorkoutService } from '../../services/workout.service';
+import { ActionService } from '../../services/action.service';
+import { AuthService } from '../../services/auth.service';
 import { ResultPage } from '../result/result.page';
 
 @Component({

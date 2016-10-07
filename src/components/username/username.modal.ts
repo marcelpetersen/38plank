@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
-import { AuthService } from '../../services/AuthService';
-import { AthleteService } from '../../services/AthleteService';
+import { AuthService } from '../../services/auth.service';
+import { AthleteService } from '../../services/athlete.service';
 import { Subject } from 'rxjs';
 import { AngularFire } from 'angularfire2';
 

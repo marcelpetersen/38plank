@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {MovementService} from '../../services/MovementService';
+import {MovementService} from '../../services/movement.service';
 import {Movement} from '../../model/movement';
 
 @Component({

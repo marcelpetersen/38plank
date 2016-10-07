@@ -3,8 +3,8 @@ import { NavParams } from 'ionic-angular';
 import { FirebaseObjectObservable } from 'angularfire2';
 
 import { ProgramService } from '../../services/program.service';
-import { AthleteService } from '../../services/AthleteService';
-import { AuthService } from '../../services/AuthService';
+import { AthleteService } from '../../services/athlete.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   templateUrl: 'program.page.html'

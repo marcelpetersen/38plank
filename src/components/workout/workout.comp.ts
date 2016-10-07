@@ -1,9 +1,9 @@
 import { OnInit, Component, Input } from '@angular/core';
 import { NavController, App } from 'ionic-angular';
-import { WorkoutService } from '../../services/WorkoutService';
+import { WorkoutService } from '../../services/workout.service';
 import { WorkoutForm } from '../../pages/workout/workoutForm';
 import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
-import { AthleteService } from '../../services/AthleteService';
+import { AthleteService } from '../../services/athlete.service';
 
 @Component({
 	selector: 'workout',
@@ -47,7 +47,6 @@ export class WorkoutComponent implements OnInit {
 
 	navigate() {
 		if (!this.editable) {
-
 			this.app.getRootNav().push(WorkoutForm, {
 				workoutId: this.workoutId
 			});

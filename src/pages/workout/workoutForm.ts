@@ -8,11 +8,11 @@ import { Workout } from '../../model/workout';
 import { Exercise } from '../../model/exercise';
 import { Action } from '../../model/action';
 // Services
-import { AuthService } from '../../services/AuthService';
-import { WorkoutService } from '../../services/WorkoutService';
-import { ActionService } from '../../services/ActionService';
-import { CameraService } from '../../services/CameraService';
-import { StorageService } from '../../services/StorageService';
+import { AuthService } from '../../services/auth.service';
+import { WorkoutService } from '../../services/workout.service';
+import { ActionService } from '../../services/action.service';
+import { CameraService } from '../../services/camera.service';
+import { StorageService } from '../../services/storage.service';
 // Components & Models
 import { SearchMovements } from '../../components/movement/movement-search.modal';
 import { CompletionWorkout } from '../../components/workout/completion-workout.comp';

@@ -1,11 +1,11 @@
 import { App } from 'ionic-angular';
 import { Component } from '@angular/core';
-import { MovementService } from '../../services/MovementService';
+import { MovementService } from '../../services/movement.service';
 import { Movement } from '../../model/movement';
 import { MovementForm } from './movement-form.page';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { AuthService } from '../../services/AuthService';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   templateUrl: 'movement-list.page.html'

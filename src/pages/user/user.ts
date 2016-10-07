@@ -1,17 +1,17 @@
 import { NavController } from 'ionic-angular';
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/AuthService';
-import { AthleteService } from '../../services/AthleteService';
+import { AuthService } from '../../services/auth.service';
+import { AthleteService } from '../../services/athlete.service';
 import { Workout } from '../../model/workout';
 import { Athlete } from '../../model/athlete';
 import { Action } from '../../model/action';
 import { Result } from '../../model/result';
 import { Movement } from '../../model/movement';
-import { ResultService } from '../../services/ResultService';
+import { ResultService } from '../../services/result.service';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import { SettingsPage } from '../settings/settings.page';
-import { WorkoutService } from '../../services/WorkoutService';
-import { MovementService } from '../../services/MovementService';
+import { WorkoutService } from '../../services/workout.service';
+import { MovementService } from '../../services/movement.service';
 
 @Component({
   templateUrl: 'user.html'

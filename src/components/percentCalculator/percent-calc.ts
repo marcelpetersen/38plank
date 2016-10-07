@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges} from '@angular/core';
-import {AthleteService} from '../../services/AthleteService';
-import {AuthService} from '../../services/AuthService';
+import {AthleteService} from '../../services/athlete.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
 	selector: 'percentage-calculator',
