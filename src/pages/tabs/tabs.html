@@ -4,15 +4,16 @@
       <ion-icon name="add"></ion-icon>
     </button>
     <ion-fab-list side="top">
-      <button ion-fab class="option" (click)="createMovement()"><ion-icon name="restaurant"></ion-icon></button>
-      <button ion-fab class="option" (click)="createWorkout()"><ion-icon name="medal"></ion-icon></button>
+      <button ion-fab class="option" (click)="createMovement()"><span class="flaticon-gym-1"></span></button>
+      <button ion-fab class="option" (click)="createWorkout()"><span class="flaticon-people"></span></button>
+      <button *ngIf="dev" ion-fab class="option" (click)="createProgram()"><ion-icon name="calendar"></ion-icon></button>
     </ion-fab-list>
 	</ion-fab>
 </div>
 <ion-tabs class="tabs">
   <ion-tab [root]="tab1Root" id="Home" tabIcon="pulse"></ion-tab>
   <ion-tab [root]="tab2Root" id="Workouts" tabIcon="search"></ion-tab>
-  <ion-tab [root]="tab3Root" id="Team" tabIcon="calendar"></ion-tab>
-  <ion-tab [root]="tab4Root" id="Movements" tabIcon="restaurant"></ion-tab>
+  <ion-tab *ngIf="dev" [root]="tab3Root" id="Team" tabIcon="calendar"></ion-tab>
+  <ion-tab *ngIf="dev" [root]="tab4Root" id="Movements" tabIcon="restaurant"></ion-tab>
   <ion-tab [root]="tab5Root" id="Me" tabIcon="person"></ion-tab>
 </ion-tabs>

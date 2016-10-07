@@ -70,6 +70,8 @@ export class AuthService {
                     this.addUser(authData);
                     console.log('Firebase Login Success: ' + JSON.stringify(authData));
 
+                }).catch( (err) => {
+                    throw err.toString() + ', Firebase';
                 });
 
         });

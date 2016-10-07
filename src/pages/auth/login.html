@@ -1,5 +1,8 @@
 <ion-content class="login-page">
     <h1 class="title"> 38Plank </h1>
+    <div class="error" *ngIf="error">
+        {{error}}
+    </div>
     <div class="facebook">
         <button class="button" (click)="facebookLogin()">
             <ion-icon name="facebook" class="buttonIcon"></ion-icon>
