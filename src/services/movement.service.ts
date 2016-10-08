@@ -51,6 +51,10 @@ export class MovementService {
         });
     }
 
+    getMovementMedia(movementId: string): FirebaseListObservable<any> {
+      return this.af.database.list('/movements/' + movementId + '/content');
+    }
+
     createMovement(movement: Movement) {
         return this.af.database.list('/movements').push(movement);
     }
@@ -77,3 +81,4 @@ export class MovementService {
     }
 
 }
+

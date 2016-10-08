@@ -15,7 +15,7 @@ import { ActionService } from '../../services/action.service';
 export class MovementForm {
   public movement: FirebaseObjectObservable<Movement>;
   public onPlaying: boolean = false;
-  public images: FirebaseListObservable<any>;
+  public media: FirebaseListObservable<any>;
   public editable: boolean = false;
   public editing: boolean = false;
   public id: string;
@@ -47,7 +47,7 @@ export class MovementForm {
     }
 
     this.movement = this.movements.getMovement(this.id);
-    this.images = this.movements.getImages(this.id);
+    this.media = this.movements.getMovementMedia(this.id);
     this.movement.first().subscribe( (move) => {
       if (move.createdBy === this.auth.id) {
         this.editable = true;
@@ -85,24 +85,24 @@ export class MovementForm {
     this.nav.pop();
   }
 
-  deletePhoto(_image) {
-    this.images.remove(_image.$key);
-  }
-
-  addImage() {
-    /* Select and upload Image from service */
-
+  addContent():void {
+    this.camera.getMedia().catch( (error) => {
+      console.log('ERror: ' + JSON.stringify(error));
+    });
+    /*
     this.camera.getPicture().then( (res: any): void => {
-      let imageObj = {
-        imageURL: res.url,
-        name: res.img.name
+      let mediaObj = {
+        type: 'image',
+        imageUrl: res.url,
+        name: res.name
       };
-      this.images.push(imageObj);
+      this.media.push(mediaObj)
     }).catch((error) => {
       console.warn('Error Occured' + JSON.stringify(error));
     });
+    */
   }
-
+  // Should be refactored into movement.comp
   changeCategory() {
 
     /* Think about componentizing this */
@@ -143,32 +143,6 @@ export class MovementForm {
     });
 
     categoryAlert.present(categoryAlert);
-  }
-
-  imageOptions(img) {
-
-    console.log('Image Options: ' , img);
-    let modal = this.modalCtrl.create(ImageModal, {
-      image: img,
-      options: {
-        thumbnail: () => {
-          if (this.editable) {
-            console.log(img);
-            this.movement.update({
-              thumbnail: {
-                imageURL: img.imageURL,
-                name: img.name
-              }
-            });
-          }
-        }
-      }
-    });
-    modal.present(modal);
-  }
-
-  addVideo(): void {
-
   }
 
 }

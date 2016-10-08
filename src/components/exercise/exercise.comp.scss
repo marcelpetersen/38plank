@@ -19,7 +19,7 @@
 			margin: 0px;
 			margin-left: -5px;
 			text-align: center;
-			font-family: color($fonts, primary);
+			font-family: $primary-font;
 			.prop {
 				width: 100%;
 				text-align: center;
@@ -38,7 +38,7 @@
 			display: table-cell;
 			max-width: 50%;
 			height: 70px;
-			font-family: color($fonts, primary);
+			font-family: $primary-font;
 			.name {
 				padding: 0px;
 				margin: 0px;

@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {ViewController, NavParams, Platform} from 'ionic-angular';
 import {AuthService} from '../../services/auth.service';
-import {Camera} from 'ionic-native';
 import {CameraService} from '../../services/camera.service';
 import {StorageService} from '../../services/storage.service';
 

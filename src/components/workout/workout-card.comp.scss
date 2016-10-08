@@ -32,7 +32,7 @@
 			width: 100%;
 		}
 		.title {
-			font-family: color($fonts, primary);
+			font-family: $primary-font;
 			color: color($colors, title);
 			display: inline-block;
 			padding: 4px;
@@ -54,7 +54,7 @@
 		}
 		.description {
 			margin: 0;
-			font-family: color($fonts, primary);
+			font-family: $primary-font;
 			color: color($colors, description);
 			font-size: .7em;
 			padding: 3px;
@@ -74,7 +74,7 @@
 		border-bottom-left-radius: 3px;
 		border-bottom-right-radius: 3px;
 		li {
-			font-family: color($fonts, primary);
+			font-family: $primary-font;
 			text-align: center;
 			display: inline-block;
 			width: 31%;

@@ -28,66 +28,16 @@
 			}
 		}
 	}
+	
+	.add-content {
+		background-color: color($colors, primary);
+		text-align: center;
+		button {
+			background-color: color($colors, primary);
+			width: 100%;
+			font-size: 1.3em;
+			padding: 8px;
 
-	.images {
-		.text {
-			color: black;
-			font-size: .6em;
-			padding-bottom: 5px;
-		}
-		font-size: 1.5em;
-		color: color($colors, primary);
-		padding: 10px;
-		height: 100px;
-		margin-left: 10px;
-		overflow: scroll;
-		white-space: nowrap;
-
-		.photos {
-			width: 75px;
-			height: 75px;
-			display: inline-block;
-			padding: 1px;
-			.photo {
-				width: 75px;
-				height: 75px;
-			}
-			ion-icon {
-				color: color($colors, error);
-				z-index: 1;
-				position: absolute;
-				top: 0;
-				padding-top: 5px;
-				margin-left: -10px;
-			}
-		}
-
-		.addPhoto {
-			vertical-align: top;
-			display: inline-block;
-			width: 75px;
-			height: 75px;
-			text-align: center;
-			padding-top: 25px;
-		}
-	}
-
-	.videos {
-		.text {
-			color: black;
-			font-size: .6em;
-			padding-bottom: 5px;
-		}
-		font-size: 1.5em;
-		color: color($colors, primary);
-		padding: 10px;
-		width: 100%;
-
-		.addVideo {
-			width: 50px;
-			height: 50px;
-			text-align: center;
-			padding-top: 10px;
 		}
 	}
 

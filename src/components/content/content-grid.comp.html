@@ -1,3 +1,6 @@
 <div class="content-grid">
-  Content Grid
+  <div class="media" *ngFor="let media of items | async">
+    <img *ngIf="media.type === 'image'" [src]="media.imageUrl" (click)="showImage(media)">
+    <img *ngIf="media.type === 'video'" [src]="media.thumbnail" (click)="showVideo(media)">
+  </div>
 </div>

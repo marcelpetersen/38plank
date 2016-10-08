@@ -14,7 +14,7 @@ export class MovementListPage {
 
   public movementList: Observable<Movement[]>;
   // Search isnt implemented
-  public searchQuery: Subject<string> = new Subject();
+  public searchQuery: Subject<any> = new Subject();
 
   constructor(
           public app: App,

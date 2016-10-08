@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { Camera } from 'ionic-native';
+import { Camera, File } from 'ionic-native';
 import { StorageService } from './storage.service';
 import { AuthService } from './auth.service';
 
@@ -9,20 +9,35 @@ declare var window: any;
 @Injectable()
 export class CameraService {
 
+    // Ability to upload videos
     public options: any = {
           sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-          mediaType: Camera.MediaType.PICTURE,
-          destinationType: Camera.DestinationType.DATA_URL
+          mediaType: Camera.MediaType.ALLMEDIA,
+          destinationType: Camera.DestinationType.FILE_URI
     }
 
     constructor(public platform: Platform,
                 public storage: StorageService,
                 public auth: AuthService) {}
 
+    getMedia(): Promise<any> {
+      return new Promise((resolve, reject) => {
+        Camera.getPicture(this.options).then( (fileUri: any) => {
+          console.log('File URI: ' + JSON.stringify(fileUri));
+          window.resolveLocalFileSystemURL('file://' + fileUri, (success) => {
+            console.log('Resolved!' + JSON.stringify(success));
+          }, (error) => {
+            console.log('Error resolving file: ' + JSON.stringify(error));
+          });
+        });
+      });
+    }
+
     getPicture(): Promise<any> {
       return new Promise( (resolve, reject): void => {
         Camera.getPicture(this.options).then( (base64: any) => {
           // Create Blob
+
           const contentType = 'image/jpeg';
           const blob = this.b64toBlob(base64, contentType);
           const name = '' + this.auth.id + (Date.now() + '.jpg');
