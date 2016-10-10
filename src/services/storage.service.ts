@@ -11,4 +11,8 @@ export class StorageService {
 	addImage(name, img) {
 		return this.imageRef.child(name).put(img);
 	}
+
+  addFile(name, file) {
+    return this.imageRef.child(name).put(file);
+  }
 }
