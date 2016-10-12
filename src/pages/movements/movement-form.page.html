@@ -22,6 +22,9 @@
 	<div class="add-content" *ngIf="editable && editing">
 		<button (click)="addContent()"><ion-icon name="camera"></ion-icon></button>
 	</div>
+	<div class="error" *ngIf="error">
+		{{error}}
+	</div>
 	<div class="content">
 		<content-grid [id]="id" [type]="'movement'"></content-grid>
 	</div>
