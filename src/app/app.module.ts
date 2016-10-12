@@ -14,6 +14,7 @@ import { ProgramPage } from '../pages/program/program.page';
 import { SettingsPage } from '../pages/settings/settings.page';
 import { WorkoutForm } from '../pages/workout/workoutForm';
 import { UserPage } from '../pages/user/user';
+import { VideoPage } from '../components/video/video.page';
 
 // Components
 import { ActionComponent } from '../components/action/action.comp';
@@ -79,6 +80,7 @@ export const firebaseConfig = {
     ProgramPage,
     SettingsPage,
     UserPage,
+    VideoPage,
     WorkoutForm,
     ActionComponent,
     CalendarComp,
@@ -119,6 +121,7 @@ export const firebaseConfig = {
     ProgramPage,
     SettingsPage,
     UserPage,
+    VideoPage,
     WorkoutForm,
     ActionComponent,
     CalendarComp,

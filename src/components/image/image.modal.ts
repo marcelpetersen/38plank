@@ -43,23 +43,6 @@ export class ImageModal {
     this.viewCtrl.dismiss();
   }
 
-  addPhoto() {
-    /* Camera */
-        /* Select and upload Image from service */
-
-    this.camera.getMedia().then( (res: any): void => {
-      console.log('Resolved' , res);
-      let imageObj = {
-        imageURL: res.url,
-        name: res.img.name
-      };
-      this.options.addPhoto(imageObj);
-    }).catch((error) => {
-      console.warn('Image Error Occured: ' + JSON.stringify(error));
-    });
-
-  }
-
   menu() {
     // Show Menu
     this.showMenu = !this.showMenu;

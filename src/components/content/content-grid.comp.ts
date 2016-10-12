@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from 'ionic-angular';
+
+import { VideoPage } from '../video/video.page';
 import { MovementService } from '../../services/movement.service';
 import { AuthService } from '../../services/auth.service';
 import { CameraService } from '../../services/camera.service';
@@ -12,15 +15,14 @@ export class ContentGridComponent implements OnInit {
 
   @Input() id: string;
   @Input() type: string;
-  public 
   public items: FirebaseListObservable<any>;
   public error: any;
 
   constructor(
     public auth: AuthService,
     public movements: MovementService,
-    public camera: CameraService
-    ) {
+    public camera: CameraService,
+    public modalController: ModalController ) {
   }
 
   ngOnInit(): void {
@@ -41,6 +43,8 @@ export class ContentGridComponent implements OnInit {
 
   playVideo(video: any): void {
     console.log('Play Video');
+    let modal = this.modalController.create(VideoPage, {});
+    modal.present();
   }
 
 }
