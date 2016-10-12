@@ -47,7 +47,7 @@ export class ImageModal {
     /* Camera */
         /* Select and upload Image from service */
 
-    this.camera.getPicture().then( (res: any): void => {
+    this.camera.getMedia().then( (res: any): void => {
       console.log('Resolved' , res);
       let imageObj = {
         imageURL: res.url,

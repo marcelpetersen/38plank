@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Movement } from '../model/movement';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class MovementService {
     public movements = firebase.database().ref('movements');
 
-    constructor(public af: AngularFire) {}
+    constructor(public af: AngularFire) {
+
+    }
 
     getMovements(id: string): Observable<any> {
         // Return Movements either user created, or fittist created (currently just katies username)

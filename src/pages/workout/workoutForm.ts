@@ -75,7 +75,7 @@ export class WorkoutForm {
 
     addPhoto(): void {
 
-        this.camera.getPicture().then( (res: any): void => {
+        this.camera.getMedia().then( (res: any): void => {
           let imageObj = { imageURL: res };
           this.workout.update({
               thumbnail: imageObj

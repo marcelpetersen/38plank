@@ -26,7 +26,7 @@ export class ContentGridComponent implements OnInit {
   ngOnInit(): void {
     switch (this.type) {
       case "movement":
-        console.log('Getting Movement Content: ' , this.id);
+        console.log('Getting Movement Content: ' + JSON.stringify(this.id));
         this.items = this.movements.getMovementMedia(this.id);
         break;
       default:
@@ -39,8 +39,8 @@ export class ContentGridComponent implements OnInit {
 
   }
 
-  showVideo(video: any): void {
-
+  playVideo(video: any): void {
+    console.log('Play Video');
   }
 
 }

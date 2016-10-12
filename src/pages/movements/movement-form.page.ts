@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavParams, NavController, AlertController, ModalController } from 'ionic-angular';
+import { NavParams, NavController, AlertController, ModalController, LoadingController } from 'ionic-angular';
 import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import { MovementService } from '../../services/movement.service';
 import { AuthService } from '../../services/auth.service';
@@ -20,6 +20,7 @@ export class MovementForm {
   public editing: boolean = false;
   public id: string;
   public error: any;
+  public loading: boolean = false;
 
   constructor(public movements: MovementService,
               public auth: AuthService,
@@ -28,7 +29,8 @@ export class MovementForm {
               public alertCtrl: AlertController,
               public modalCtrl: ModalController,
               public camera: CameraService,
-              public actions: ActionService) {
+              public actions: ActionService,
+              public loadingCtrl: LoadingController) {
 
     if (this.params && this.params.get('movementId')) {
       this.id = this.params.get('movementId');
@@ -48,6 +50,9 @@ export class MovementForm {
 
     this.movement = this.movements.getMovement(this.id);
     this.media = this.movements.getMovementMedia(this.id);
+    this.media.subscribe( (data) => {
+      console.log('Media List: ' + JSON.stringify(data));
+    });
     this.movement.first().subscribe( (move) => {
       if (move.createdBy === this.auth.id) {
         this.editable = true;
@@ -86,21 +91,20 @@ export class MovementForm {
   }
 
   addContent():void {
+    let loader = this.loadingCtrl.create({
+      content:'Uploading...'
+    });
+    loader.present();
     this.camera.getMedia().catch( (error) => {
-      console.log('ERror: ' + JSON.stringify(error));
+      console.log('Get Media Error: ' + JSON.stringify(error));
+      this.error = error;
+      loader.dismiss();
+    }).then( (media: any) => {
+      console.log('Upload Succeded' + JSON.stringify(media));
+      // Add Media to media list
+      this.media.push(media);
+      loader.dismiss();
     });
-    /*
-    this.camera.getPicture().then( (res: any): void => {
-      let mediaObj = {
-        type: 'image',
-        imageUrl: res.url,
-        name: res.name
-      };
-      this.media.push(mediaObj)
-    }).catch((error) => {
-      console.warn('Error Occured' + JSON.stringify(error));
-    });
-    */
   }
   // Should be refactored into movement.comp
   changeCategory() {

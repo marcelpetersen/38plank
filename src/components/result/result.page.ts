@@ -42,7 +42,7 @@ export class ResultPage {
 		console.log('Image Options');
 		/* Select and upload Image from service */
 
-	    this.camera.getPicture().then( (res: any): void => {
+	    this.camera.getMedia().then( (res: any): void => {
 	      let imageObj = {
 	        imageURL: res.url,
 	        name: res.img.name
