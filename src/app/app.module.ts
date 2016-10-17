@@ -34,6 +34,8 @@ import { CompletionWorkout } from '../components/workout/completion-workout.comp
 import { WorkoutCardComponent } from '../components/workout/workout-card.comp';
 import { WorkoutComponent } from '../components/workout/workout.comp';
 import { ContentGridComponent } from '../components/content/content-grid.comp';
+import { WorkoutSearchComponent } from '../components/workout/workout-search.comp';
+import { AthleteSearchComponent } from '../components/athlete/athlete-search.comp';
 
 // Services
 import { ActionService } from '../services/action.service';
@@ -99,6 +101,8 @@ export const firebaseConfig = {
     WorkoutCardComponent,
     WorkoutComponent,
     ContentGridComponent,
+    WorkoutSearchComponent,
+    AthleteSearchComponent,
     IntegerPipe,
     PropertiesFormatter,
     ReversePipe,

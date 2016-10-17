@@ -3,7 +3,7 @@
     <img *ngIf="media.mediaType === 'image'" [src]="media.imageUrl" (click)="showImage(media)">
     <div class="video" *ngIf="media.mediaType === 'video/mp4'">
       <ion-icon (click)="playVideo(media)" name="play" *ngIf="media.mediaType === 'video/mp4'"></ion-icon>
-      <!-- <img *ngIf="media.mediaType === 'video/mp4'" [src]="media.thumbnail" (click)="showVideo(media)"> -->
+      <img *ngIf="media.mediaType === 'video/mp4'" [src]="media.thumbnail" (click)="showVideo(media)">
     </div>
   </div>
 </div>

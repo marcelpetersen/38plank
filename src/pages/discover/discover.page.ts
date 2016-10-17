@@ -15,18 +15,11 @@ export class DiscoverPage {
 
   	constructor(public workouts: WorkoutService,
   				public af: AngularFire) {
-		this.initiateSearchBar();
+      console.log('Discover Page Construction');
   	}
 
   	getItems($event) {
 		  this.searchTerm.next($event.target.value);
-  	}
-
-  	initiateSearchBar() {
-  		/* Start with just relevance, then add likes or "top" posts
-  			By merging rxjs streams 
-  		*/
-      this.items = this.workouts.getWorkoutsByName(this.searchTerm);
   	}
 
     ionViewDidEnter() {

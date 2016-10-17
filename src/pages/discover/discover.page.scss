@@ -4,11 +4,17 @@ ion-searchbar {
 }
 
 .discover-page {
-	background-color: map-get($colors, background);
+	background-color: color($colors, background);
+	.search-bar {
+		background-color: color($colors, background);
+		.item-inner {
+			border: 0px;
+		}
+	}
 
 	.tabs {
 		display: inline-block;
-		background-color: map-get($colors, background);
+		background-color: color($colors, background);
 		width: 100%;
 	
 		.option {
@@ -23,7 +29,7 @@ ion-searchbar {
 		}
 		.visiting {
 			color: rgba(255,255,255,1);
-			border-bottom: 3px solid map-get($colors, primary);
+			border-bottom: 3px solid color($colors, primary);
 		}
 	}
 

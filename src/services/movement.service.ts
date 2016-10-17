@@ -74,12 +74,14 @@ export class MovementService {
                 }
         });
 
+        return list;
+
         // Another way of only getting movements of a certain type
-        return list.map( (arr: any[], idx: number) => {
+        /* return list.map( (arr: any[], idx: number) => {
             return arr.filter( (move) => {
                 return (move.createdBy === id || move.createdBy === 'qaydNqdgrtYDxslZ86QT0gdw7yi2');
             });
-        });
+        });*/
     }
 
 }

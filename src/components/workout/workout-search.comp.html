@@ -1,0 +1,3 @@
+  <div *ngFor="let item of items | async" class="list-item">
+    <workout-card [workoutId]="item.$key"></workout-card>
+  </div>

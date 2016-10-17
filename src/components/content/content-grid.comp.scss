@@ -3,5 +3,7 @@
   .video {
     width: 90px;
     height: 90px;
+    color: color($colors, primary);
+    display: inline;
   }
 }

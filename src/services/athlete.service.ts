@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
 
+declare var firebase: any;
+
 @Injectable()
 export class AthleteService {
 
@@ -41,6 +43,16 @@ export class AthleteService {
             query: {
                 orderByKey: true,
                 equalTo: id
+            }
+        });
+    }
+
+    searchAthletesByUsername(username: Subject<any>) {
+        return this.af.database.list('/athletes' , {
+            query: {
+                orderByChild: 'username',
+                startAt: username,
+                limitToFirst: 10
             }
         });
     }
