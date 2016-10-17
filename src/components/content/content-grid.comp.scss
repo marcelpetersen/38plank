@@ -1,9 +1,22 @@
 .content-grid {
-  
+  .media {
+    display: inline-block;
+  }
   .video {
     width: 90px;
     height: 90px;
     color: color($colors, primary);
-    display: inline;
+    background-size: 90px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 25px;
+
+    .play-button {
+      border-radius: 20px;
+      padding-top: 10px;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(38,38,38,.5);
+    }
   }
 }
