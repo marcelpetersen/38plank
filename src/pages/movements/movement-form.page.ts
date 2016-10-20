@@ -50,9 +50,6 @@ export class MovementForm {
 
     this.movement = this.movements.getMovement(this.id);
     this.media = this.movements.getMovementMedia(this.id);
-    this.media.subscribe( (data) => {
-      console.log('Media List: ' + JSON.stringify(data));
-    });
     this.movement.first().subscribe( (move) => {
       if (move.createdBy === this.auth.id) {
         this.editable = true;
