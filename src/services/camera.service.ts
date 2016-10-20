@@ -11,18 +11,19 @@ declare var Zone: any;
 export class CameraService {
 
     // Ability to upload videos
-    public options: any = {
-          sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-          mediaType: Camera.MediaType.ALLMEDIA,
-          destinationType: Camera.DestinationType.FILE_URI
-    }
+  public options: any = {
+        sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+        mediaType: Camera.MediaType.ALLMEDIA,
+        destinationType: Camera.DestinationType.FILE_URI
+  }
 
-    constructor(public platform: Platform,
-                public storage: StorageService,
-                public auth: AuthService) {}
+  constructor(public platform: Platform,
+              public storage: StorageService,
+              public auth: AuthService) {}
 
-    getMedia(): Promise<any> {
-      // Workaround for filereader
+  getMedia(): Promise<any> {
+    // Workaround for filereader in ios
+    if (this.platform.is('ios')) {
       const WrappedFileReader = window.FileReader
       window.FileReader = function OriginalFileReader(...args) {
         WrappedFileReader.apply(this, args)
@@ -30,21 +31,22 @@ export class CameraService {
 
         return originalInstance || this
       }
-
-      return new Promise((resolve, reject) => {
-        Camera.getPicture(this.options).then( (fileUri: any) => {
-          console.log('File URI: ' + JSON.stringify(fileUri));
-          // Add Prefix for android platform
-          if (this.platform.is('android')) {
-            fileUri = 'file://' + fileUri;
-          }
-          this.resolveLocalFile(resolve, reject, fileUri);
-        }).catch( (error) => {
-          console.log('Get Picture Error: ' , error);
-          reject(error);
-        });
-      });
     }
+
+    return new Promise((resolve, reject) => {
+      Camera.getPicture(this.options).then( (fileUri: any) => {
+        console.log('File URI: ' + JSON.stringify(fileUri));
+        // Add Prefix for android platform
+        if (this.platform.is('android')) {
+          fileUri = 'file://' + fileUri;
+        }
+        this.resolveLocalFile(resolve, reject, fileUri);
+      }).catch( (error) => {
+        console.log('Get Picture Error: ' , error);
+        reject(error);
+      });
+    });
+  }
 
   resolveLocalFile(resolve, reject, fileUri) {
      window.resolveLocalFileSystemURL(fileUri, (fileEntry) => {
@@ -75,7 +77,7 @@ export class CameraService {
      // Create Thumbnail
      let arrayBuffer = result.target.result;
      this.createThumbnail(arrayBuffer);
-     let blob = new Blob([new Uint8Array(arrayBuffer)], {type: file.type});
+     let blob = new Blob([new Uint8Array(arrayBuffer)], {'type': '' + file.type});
      const name = '' + Date.now() + this.auth.id;
      this.upload(blob, name , file.type, resolve, reject);
    };
@@ -93,11 +95,11 @@ export class CameraService {
      console.log('onload');
    };
 
-   console.log('FileReader reading: ' , fileReader);
    fileReader.readAsArrayBuffer(file);
   }  
 
   upload(blob: Blob, name: string, type: string, resolve: any, reject: any) {
+    console.log('Uploading: ' + JSON.stringify(name) + ' , type: ' + JSON.stringify(type));
     let uploadTask = this.storage.addBlob( name , type, blob);
          uploadTask.on('state_changed' , (snapshot) => {
             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -136,7 +138,7 @@ export class CameraService {
             }
           }, () => {
             console.log('Finished Uploading');
-            resolve( {url: uploadTask.snapshot.downloadURL, name: name, mediaType: type} );
+            resolve( {url: uploadTask.snapshot.downloadURL, name: uploadTask.snapshot.metadata.name, mediaType: type} );
           });
   }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.badwolf.plank38" version="0.4.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.badwolf.plank38" version="0.4.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>38Plank</name>
   <description>Social Platform for Fitness and Nutrition</description>
   <author email="andrew@38plank.com" href="http://www.38plank.com/">Andrew Cole</author>
@@ -67,7 +67,7 @@
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
-  <preference name="android-minSdkVersion" value="16"/>
+  <preference name="android-minSdkVersion" value="18"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreenDelay" value="0"/>
   <preference name="FadeSplashScreen" value="false"/>

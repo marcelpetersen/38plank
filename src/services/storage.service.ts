@@ -15,7 +15,7 @@ export class StorageService {
         return this.addImage(name, blob);
       case "video/mp4":
         return this.addVideo(name + '.mp4', blob);
-      case null: 
+      case 'video/mov': 
         return this.addVideo(name + '.MOV', blob);
       default:
         console.log('No Type specified in blob addition');

@@ -99,7 +99,10 @@ export class MovementForm {
     }).then( (media: any) => {
       console.log('Upload Succeded' + JSON.stringify(media));
       // Add Media to media list
-      this.media.push(media);
+      this.media.push(media).catch( (error) => {
+        console.warn('Error inseting media into database: ' + JSON.stringify(error));
+        this.error = error;
+      });
       loader.dismiss();
     });
   }
