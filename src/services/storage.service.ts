@@ -11,12 +11,16 @@ export class StorageService {
 
 	addBlob(name: string, type: string, blob: Blob) {
 		switch (type) {
-      case "image":
+      case "image/jpg":
+        return this.addImage(name, blob);
+      case "image/jpeg":
+        return this.addImage(name, blob);
+      case "image/png":
         return this.addImage(name, blob);
       case "video/mp4":
-        return this.addVideo(name + '.mp4', blob);
+        return this.addVideo(name, blob);
       case 'video/mov': 
-        return this.addVideo(name + '.MOV', blob);
+        return this.addVideo(name, blob);
       default:
         console.log('No Type specified in blob addition');
         break;
