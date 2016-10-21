@@ -1,4 +1,4 @@
-<ion-content>
-  Video Page
-  <button (click)="close()" ><ion-icon name="close"></ion-icon></button>
+<ion-content class="video-page">
+  <button class="close" (click)="close()" ><ion-icon name="close"></ion-icon></button>
+  <video class="video" [poster]="video?.thumbnail.url" [src]="video.url" controls></video>
 </ion-content>

@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
-import {ViewController, NavParams } from 'ionic-angular';
-import {AuthService} from '../../services/auth.service';
+import { Component, OnDestroy } from '@angular/core';
+import { ViewController, NavParams } from 'ionic-angular';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   templateUrl: 'video.page.html'
 })
-export class VideoPage {
+export class VideoPage implements OnDestroy {
   public video: any;
   public options: any;
 
@@ -19,6 +19,11 @@ export class VideoPage {
     this.options = this.params.get('options');
     console.log('Video: ' , this.video);
     console.log('Options: ' , this.options);
+
+  }
+
+  ngOnDestroy(): void {
+    // Destroy video context for memory savings
 
   }
 

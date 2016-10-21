@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
+import { ImageModal } from '../image/image.modal';
 import { VideoPage } from '../video/video.page';
 import { MovementService } from '../../services/movement.service';
 import { AuthService } from '../../services/auth.service';
@@ -38,13 +39,15 @@ export class ContentGridComponent implements OnInit {
   }
 
   showImage(img: any): void {
-
+    // Image Modal!
+    let imageModal = this.modalController.create(ImageModal, {image: img});
+    imageModal.present();
   }
 
-  playVideo(video: any): void {
+  playVideo(v: any): void {
     console.log('Play Video');
-    let modal = this.modalController.create(VideoPage, {});
-    modal.present();
+    let videoModal = this.modalController.create(VideoPage, {video: v});
+    videoModal.present();
   }
 
 }
