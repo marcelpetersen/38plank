@@ -1,6 +1,6 @@
 <div class="content-grid">
   <div class="media" *ngFor="let media of items | async">
-    <img *ngIf="media.mediaType === 'image'" [src]="media.imageUrl" (click)="showImage(media)">
+    <img *ngIf="media.mediaType === 'image/jpeg' || media.mediaType === 'image/png' || media.mediaType === 'image/jpg'" [src]="media.url" (click)="showImage(media)">
     <div class="video" *ngIf="media.mediaType === 'video/mp4' || media.mediaType === 'video/mov'" [ngStyle]="{'background-image': 'url(' + media.thumbnail?.url + ')'}">
       <ion-icon (click)="playVideo(media)" name="play" class="play-button" *ngIf="media.mediaType === 'video/mp4' || media.mediaType === 'video/mov'"></ion-icon>
     </div>
