@@ -5,7 +5,6 @@ import { MovementService } from '../../services/movement.service';
 import { AuthService } from '../../services/auth.service';
 import { Movement } from '../../model/movement';
 import { Action } from '../../model/action';
-import { ImageModal } from '../../components/image/image.modal';
 import { CameraService } from '../../services/camera.service';
 import { ActionService } from '../../services/action.service';
 
@@ -14,8 +13,8 @@ import { ActionService } from '../../services/action.service';
 })
 export class MovementForm {
   public movement: FirebaseObjectObservable<Movement>;
+  public video: FirebaseObjectObservable<any>;
   public onPlaying: boolean = false;
-  public media: FirebaseListObservable<any>;
   public editable: boolean = false;
   public editing: boolean = false;
   public id: string;
@@ -49,13 +48,36 @@ export class MovementForm {
     }
 
     this.movement = this.movements.getMovement(this.id);
-    this.media = this.movements.getMovementMedia(this.id);
+    this.video = this.movements.getVideo(this.id);
+    this.video.subscribe( (video) => {
+      console.log('video change' + JSON.stringify(video));
+    });
     this.movement.first().subscribe( (move) => {
       if (move.createdBy === this.auth.id) {
         this.editable = true;
       }
     });
 
+  }
+
+  changeVideo(): void {
+    let loader = this.loadingCtrl.create({
+      content:'Uploading...'
+    });
+    loader.present();
+    this.camera.getMedia().catch( (error) => {
+      console.log('Get Media Error: ' + JSON.stringify(error));
+      this.error = error;
+      loader.dismiss();
+    }).then( (newVideo: any) => {
+      console.log('Upload Succeded' + JSON.stringify(newVideo));
+      // Add Media to media list
+      this.video.set(newVideo).catch( (error) => {
+        console.warn('Error inseting media into database: ' + JSON.stringify(error));
+        this.error = error;
+      });
+      loader.dismiss();
+    });
   }
 
   addAction() {
@@ -85,26 +107,6 @@ export class MovementForm {
   delete() {
     this.movements.deleteMovement(this.id);
     this.nav.pop();
-  }
-
-  addContent():void {
-    let loader = this.loadingCtrl.create({
-      content:'Uploading...'
-    });
-    loader.present();
-    this.camera.getMedia().catch( (error) => {
-      console.log('Get Media Error: ' + JSON.stringify(error));
-      this.error = error;
-      loader.dismiss();
-    }).then( (media: any) => {
-      console.log('Upload Succeded' + JSON.stringify(media));
-      // Add Media to media list
-      this.media.push(media).catch( (error) => {
-        console.warn('Error inseting media into database: ' + JSON.stringify(error));
-        this.error = error;
-      });
-      loader.dismiss();
-    });
   }
   // Should be refactored into movement.comp
   changeCategory() {

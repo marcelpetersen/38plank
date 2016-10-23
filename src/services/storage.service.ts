@@ -9,7 +9,7 @@ export class StorageService {
 
 	}
 
-	addBlob(name: string, type: string, blob: Blob) {
+	addBlob(name: string, type: string, blob: Blob, reject) {
 		switch (type) {
       case "image/jpg":
         return this.addImage(name, blob);
@@ -41,7 +41,7 @@ export class StorageService {
 
   upload(blob: Blob, name: string, type: string, thumbnail: any, resolve: any, reject: any) {
    console.log('Uploading: ' + JSON.stringify(name) + ' , type: ' + JSON.stringify(type));
-   let uploadTask = this.addBlob( name , type, blob);
+   let uploadTask = this.addBlob( name , type, blob, reject);
    uploadTask.on('state_changed' , (snapshot) => {
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -61,12 +61,10 @@ export class StorageService {
           // User doesn't have permission to access the object
           console.log('Unauthorized Access: ' + JSON.stringify(error));
           reject(error.code);
-          break;
         case 'storage/canceled':
           // User canceled the upload
           console.log('Canceled');
           reject(error.code);
-          break;
         case 'storage/unknown':
           // Unknown error occurred, inspect error.serverResponse
           console.log('Storage Unkown: ' + JSON.stringify(error));

@@ -1,4 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Video
+    </ion-title>
+    <ion-buttons end>
+      <button class="menu" (click)="menu()"><ion-icon name="menu"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
 <ion-content class="video-page">
-  <button class="close" (click)="close()" ><ion-icon name="close"></ion-icon></button>
-  <video class="video" [poster]="video?.thumbnail.url" [src]="video.url" controls></video>
+  <video class="video" autoplay="true" controls>
+    <source [src]="video.url">
+    Video Not Supported
+  </video>
 </ion-content>

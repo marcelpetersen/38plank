@@ -95,8 +95,10 @@ export class CameraService {
           reject(error);
         }, {
           fileUri: fileUri,
-          outputFileName: 'thumbnailTmp',
-          quality: 100
+          outputFileName: 'thumbnailTmp' + Date.now() + this.auth.id,
+          quality: 100,
+          width: 200,
+          height: 200
         });
     });
   }

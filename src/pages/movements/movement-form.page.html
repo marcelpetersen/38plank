@@ -1,10 +1,16 @@
 <ion-header>
 	<ion-navbar>
-	  <ion-title>Movement Editor</ion-title>
+	  <ion-title>Movement</ion-title>
 	</ion-navbar>
 </ion-header>
 <ion-content class="movementForm">
-
+	<div class="video">
+		<video [src]="(video | async)?.url" controls></video>
+		<div class="change-video" *ngIf="editing" (click)="changeVideo()">
+			<ion-icon name="cloud-upload" ></ion-icon>
+			Upload Video
+		</div>
+	</div>
 	<!-- Refactor into movement component -->
 	<div class="title">
 		<img class="thumbnailImage" [src]="(movement | async)?.thumbnail?.imageURL">
@@ -16,14 +22,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="add-content" *ngIf="editable && editing">
-		<button (click)="addContent()"><ion-icon name="camera"></ion-icon></button>
-	</div>
 	<div class="error" *ngIf="error">
 		{{error}}
-	</div>
-	<div class="content">
-		<content-grid [id]="id" [type]="'movement'"></content-grid>
 	</div>
 	<!-- Add some description --> 
 	<div class="buttons" *ngIf="editable">

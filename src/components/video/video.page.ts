@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { ViewController, NavParams } from 'ionic-angular';
+import { ViewController, NavParams, NavController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -8,11 +8,13 @@ import { AuthService } from '../../services/auth.service';
 export class VideoPage implements OnDestroy {
   public video: any;
   public options: any;
+  public showMenu: boolean = false;
 
   constructor(
     public viewCtrl: ViewController,
     public params: NavParams,
-    public auth: AuthService
+    public auth: AuthService,
+    public nav: NavController
     ) {
     /* Two parameters, the image in question, and the source referencing it */
     this.video = this.params.get('video');
@@ -27,13 +29,13 @@ export class VideoPage implements OnDestroy {
 
   }
 
-  close() {
-    this.viewCtrl.dismiss();
-  }
-
   delete() {
     console.log('delete');
     this.options.delete();
-    this.viewCtrl.dismiss();
+    this.nav.pop();
+  }
+
+  menu(): void {
+    this.showMenu = !this.showMenu;
   }
 }
