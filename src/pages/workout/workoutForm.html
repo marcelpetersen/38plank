@@ -5,7 +5,7 @@
 </ion-header>
 <ion-content class="workoutForm">
     <div class="background">
-        <img [src]="(workout | async)?.thumbnail?.imageURL" class="workoutPhoto">
+        <img class="workoutPhoto" [src]="(workout | async)?.thumbnail?.url" alt="Upload A Photo">
     </div>
     <ion-icon class="addPhoto" name="camera" (click)="addPhoto()" *ngIf="editing && editable"></ion-icon>
     <ul class="social">

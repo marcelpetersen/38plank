@@ -21,7 +21,7 @@ export class Workout {
         this.description = obj && obj.description || 'New workout description';
         this.duration = obj && obj.duration || 100;
         this.likes = obj && obj.likes || 0;
-        this.thumbnail = obj && obj.thumbnail || { imageURL: 'https://firebasestorage.googleapis.com/v0/b/popping-inferno-7577.appspot.com/o/Log-carry.jpeg?alt=media&token=d141b60f-516b-4bcd-a769-2e2c40c77498' }// tslint:disable-line
+        this.thumbnail = obj && obj.thumbnail || { url: 'https://firebasestorage.googleapis.com/v0/b/popping-inferno-7577.appspot.com/o/images%2Fdumbell%20logo.png?alt=media&token=c985e1bc-4253-42b8-ad5c-4bcda93385a2' }// tslint:disable-line
         this.completionCount = obj && obj.completionCount || 0;
     }
 

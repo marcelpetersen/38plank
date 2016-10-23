@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavParams, NavController, AlertController, ModalController, LoadingController } from 'ionic-angular';
-import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+import { Toast } from 'ionic-native';
+import { FirebaseObjectObservable } from 'angularfire2';
 import { MovementService } from '../../services/movement.service';
 import { AuthService } from '../../services/auth.service';
 import { Movement } from '../../model/movement';
@@ -67,16 +68,18 @@ export class MovementForm {
     loader.present();
     this.camera.getMedia().catch( (error) => {
       console.log('Get Media Error: ' + JSON.stringify(error));
-      this.error = error;
       loader.dismiss();
+      Toast.show("Error Uploading Video: " + error, '5000', 'center');
     }).then( (newVideo: any) => {
-      console.log('Upload Succeded' + JSON.stringify(newVideo));
-      // Add Media to media list
-      this.video.set(newVideo).catch( (error) => {
-        console.warn('Error inseting media into database: ' + JSON.stringify(error));
-        this.error = error;
-      });
-      loader.dismiss();
+      if (newVideo) {
+        console.log('Upload Succeded' + JSON.stringify(newVideo));
+        // Add Media to media list
+        this.video.set(newVideo).catch( (error) => {
+          console.warn('Error inseting media into database: ' + JSON.stringify(error));
+          this.error = error;
+        });
+        loader.dismiss();
+      }
     });
   }
 
